@@ -763,8 +763,8 @@ nav .navbar-menu .menu>li:hover{
     max-width: 140px;
 }
 
-.arrow-icon-group>img:nth-child(1){
-    margin-right: 30px;
+.arrow-icon-group>img{
+    max-width: 55px;
 }
 
 .arrow-icon-group>img:hover{
