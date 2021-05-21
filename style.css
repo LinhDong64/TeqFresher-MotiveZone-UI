@@ -76,7 +76,7 @@ nav .navbar-menu .menu>li:hover{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 240px;
+    max-width: 240px;
 }
 
 .nav-bar>.logo-group:hover{
@@ -100,6 +100,10 @@ nav .navbar-menu .menu>li:hover{
     padding: 12px 30px;
 }
 
+.nav-bar>.slash-icon{
+    display: none;
+}
+
 @media only screen and (min-width: 1400px){
     .nav-bar{
         padding: 30px 0px 0px 0px;
@@ -112,6 +116,7 @@ nav .navbar-menu .menu>li:hover{
         height: 100%;
         margin: 0;
         padding: 0;
+        /* flex-wrap: wrap; */
     }
     
     nav .navbar-menu{
@@ -138,6 +143,10 @@ nav .navbar-menu .menu>li:hover{
     .nav-bar-button{
         display: none;
     }
+
+    .nav-bar>.slash-icon{
+        display: inline-block;
+    }
 }
 /* ==================================================================================== */
 
@@ -152,6 +161,10 @@ nav .navbar-menu .menu>li:hover{
     background-repeat: no-repeat;
     background-origin: content-box;
     background-size: cover;
+}
+
+.line-icon{
+    display: none;
 }
 
 .home-content{
@@ -214,7 +227,7 @@ nav .navbar-menu .menu>li:hover{
     }
     
     .home-banner{
-        margin: 70px 0 100px 0;
+        margin: 25px 0 100px 0;
     }
 
     .home-banner>img{
@@ -241,6 +254,11 @@ nav .navbar-menu .menu>li:hover{
     
     .home-title button{
         width: 100%;
+    }
+
+    .line-icon{
+        display: inline-block;
+        margin-top: 70px;
     }
 }
 
@@ -532,7 +550,9 @@ nav .navbar-menu .menu>li:hover{
 
     .form-btn-group{
         justify-content: center;
+        margin-top: 10px;
     }
+
 }
 /* ============================================================= */
 
