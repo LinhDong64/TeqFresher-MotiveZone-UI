@@ -60,7 +60,7 @@ export default function Footer(props) {
                 {
                     item.data.map((item, index)=>{
                         return(
-                            <li key={index}>{item.title}</li>
+                            <li key={index}><a href='/'>{item.title}</a></li>
                         )
                     })
                 }
@@ -76,7 +76,7 @@ export default function Footer(props) {
 
     const policiesEle = policyList.map((policy, index)=>{
         return(
-            <li className="bottom-footer-text" key={index}>{policy.text}</li>
+            <li className="bottom-footer-policy" key={index}><a href='/'>{policy.text}</a></li>
         )
     })
 

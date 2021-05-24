@@ -64,9 +64,13 @@ footer>.footer-main-content{
 }
 
 .footer-vertical-list>li:not(ul>li:nth-child(1)){
+    margin-bottom: 17px;
+}
+
+.footer-vertical-list>li:not(ul>li:nth-child(1)) a{
     color: #A9B2BC;
     font-size: 15px;
-    margin-bottom: 17px;
+    text-decoration: none;
 }
 
 .horizone-line{
@@ -97,9 +101,10 @@ footer>.footer-main-content{
     width: 100%;
 }
 
-.bottom-footer-text{
+.bottom-footer-policy a{
     color: #A9B2BC;
     font-size: 14px;
+    text-decoration: none;
 }
 
 .icons-list{

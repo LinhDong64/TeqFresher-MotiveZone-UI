@@ -1,7 +1,3 @@
-a{
-    color: #FFFFFF;
-    text-decoration: none;
-}
 
 .nav-bar{
     display: flex;
@@ -23,6 +19,11 @@ nav .navbar-menu .menu{
     padding: 0;
     display: flex;
     justify-content: space-between;
+}
+
+nav .navbar-menu .menu a{
+    color: #FFFFFF;
+    text-decoration: none;
 }
 
 nav .navbar-menu .menu>li{
