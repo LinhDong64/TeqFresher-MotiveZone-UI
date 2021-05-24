@@ -1,0 +1,145 @@
+.sixth-section{
+    margin: auto;
+    max-width: 1330px;
+    padding: 100px 40px ;
+}
+
+.sixth-section .main-content{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 65px;
+}
+
+.avatar{
+    margin-right: 160px;
+}
+
+.avatar{
+    position: relative;
+}
+
+.avatar>img:nth-child(2){
+    margin-left: 60px;
+    margin-top: 20px;
+}
+
+.avatar>img:nth-child(1){
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: -1;
+}
+
+.sixth-section-comment{
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+
+.comment-group{
+    margin-bottom: 30px;
+}
+
+.comment-info{
+    margin-bottom: 100px;
+}
+
+.comment-info>h4{
+    font-size: 20px;
+    color: #072753;
+    word-wrap: break-word;
+}
+
+.comment-info>p{
+    font-size: 15px;
+    color: #28384E;
+    word-wrap: break-word;
+}
+
+.comment-content>p{
+    font-size: 17px;
+    color: #072753;
+    word-wrap: break-word;
+}
+
+.arrow-icon-group{
+    display: flex;
+    justify-content: space-between;
+    max-width: 140px;
+}
+
+.arrow-icon-group>img{
+    max-width: 55px;
+}
+
+.arrow-icon-group>img:hover{
+    cursor: pointer;
+}
+
+.brands-list{
+    list-style-type: none ;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 95px;
+}
+
+.brands-list>li img{
+    width: 100%;
+    height: 50px;
+}
+
+.brands-list>li:hover{
+    cursor: pointer;
+}
+
+@media only screen and (min-width: 1400px){
+    .sixth-section{
+        padding:100px 0px ;
+    }
+}
+
+@media only screen and (max-width: 940px){
+    .sixth-section .main-content{
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 95px;
+    }
+    
+    .avatar{
+        margin-right: 60px;
+    }
+    
+    .avatar>img:nth-child(2){
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        z-index: 2;
+        position: relative;
+    }
+    
+    .avatar>img:nth-child(1){
+        z-index: 1;
+        width: 95px;
+        height: 95px;
+    }
+
+    .arrow-icon-group>img{
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+    
+    .brands-list{
+        flex-direction: column;
+        align-items: center;
+        margin: 0;
+    }
+
+    .brands-list>li{
+        margin-bottom: 50px;
+    }
+    .brands-list>li img{
+        width: 100%;
+        height: auto;
+    }
+}

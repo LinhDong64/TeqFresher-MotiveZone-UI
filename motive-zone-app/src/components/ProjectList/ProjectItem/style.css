@@ -1,0 +1,22 @@
+.project-description-group>span{
+    font-size: 20px;
+    margin-bottom: 20px;
+    display: inline-block;
+    color: #FFFFFF;
+}
+
+.project-description-group>p{
+    color: #FFFFFF;
+}
+
+.project-description-group>a{
+    font-size: 15px;
+    color: #FF9C00;
+}
+
+@media only screen and (max-width: 940px){
+    .project-description-group>span{
+        -webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-color: #1B498A;
+    }
+}

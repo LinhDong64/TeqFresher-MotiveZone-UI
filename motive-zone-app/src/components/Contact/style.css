@@ -1,0 +1,102 @@
+.fourth-section{
+    display: flex;
+    justify-content: space-between;
+    padding: 30px;
+    margin-bottom: 60px;
+}
+
+.fourth-section-banner>img{
+    max-width: 100%;
+    width: 630px;
+    height: 495px;
+}
+
+.fourth-section-title{
+    max-width: 100%;
+    width: 595px;
+}
+
+.fourth-section-form{
+    margin-right: 55px;
+}
+
+.form-input-group{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+
+.form-input-group>input{
+    background-color: #FAF9F7;
+    border: 1px solid #EDE5D9;
+    font-size: 15px;   
+    outline: none;
+    padding: 20px;
+}
+
+.form-input-group>input:nth-child(2){
+    margin: 25px 0;
+}
+
+.form-btn-group{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.form-btn-group>button{
+    padding: 15px 35px;
+}
+
+.fourth-section-form>span{
+    font-size: 15px;
+    color: #498AB3;
+    font-weight: bold;
+}
+
+@media only screen and (max-width: 1200px){
+    .fourth-section-banner>img{
+        width: 100%;
+        height: auto;
+    }
+}
+
+@media only screen and (min-width: 1400px){
+    .fourth-section{
+          padding-right: 390px;
+    }
+}
+
+@media only screen and (max-width: 940px){
+    .fourth-section{
+        flex-direction: column;
+        margin: 0;
+        background-color: #F2F6FF;
+    }
+    
+    .fourth-section-banner{
+        margin-right: 0;
+        margin-bottom: 60px;
+    }
+    
+    .fourth-section-banner>img{
+        width: 100%;
+        height: auto;
+    }
+
+    .fourth-section-title>h3{
+        font-size: 14px;
+        font-weight: bold;
+    }
+    
+    .fourth-section-form{
+        margin-right: 0;
+        margin-top: 30px;
+    }
+
+    .form-btn-group{
+        justify-content: center;
+        margin-top: 10px;
+    }
+
+}

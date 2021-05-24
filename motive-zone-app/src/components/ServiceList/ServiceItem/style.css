@@ -1,0 +1,14 @@
+.service-icon{
+    margin-bottom: 20px;
+}
+
+.service-content>h3{
+    font-size: 20px;
+    color: #072753;
+    font-weight: 100;
+}
+
+.service-content>p{
+    font-size: 15px;
+    color: #28384E;
+}

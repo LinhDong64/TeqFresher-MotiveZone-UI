@@ -1,6 +1,6 @@
 html, body{
     width: 100%;
-    height: 100%px;
+    height: 100%;
     padding: 0px;
     margin: 0;
 }
@@ -35,6 +35,19 @@ html, body{
     font-size: 15px;
     word-wrap: break-word;
 }
+
+@media only screen and (max-width: 940px){
+    main>section, footer{
+        padding: 40px !important;
+    }
+}
+
+@media only screen and (max-width: 400px){
+    main>section, footer{
+        padding: 25px 10px !important;
+    }
+}
+
 /* ======================================================= */
 
  /* start Navigation bar */
@@ -116,7 +129,6 @@ nav .navbar-menu .menu>li:hover{
         height: 100%;
         margin: 0;
         padding: 0;
-        /* flex-wrap: wrap; */
     }
     
     nav .navbar-menu{
@@ -215,7 +227,6 @@ nav .navbar-menu .menu>li:hover{
     .home-container{
         width: 100%;
         background-color: #F2F6FF;
-        padding: 45px 40px;
     }
     .home-background{
         background-image: none;
@@ -270,7 +281,8 @@ nav .navbar-menu .menu>li:hover{
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    max-width: 1140px;
+    max-width: 100%;
+    width: 1140px;
     margin: auto;
 }
 
@@ -331,7 +343,6 @@ nav .navbar-menu .menu>li:hover{
 @media only screen and (max-width: 940px){
     .service-site{
         flex-direction: column;
-        padding:45px 40px;
         margin: 0;
         background-color: #F2F6FF;
     }
@@ -374,14 +385,14 @@ nav .navbar-menu .menu>li:hover{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-left: 200px;
-    padding-right: 30px;
+    padding: 30px;
     margin-bottom: 120px ;
-    max-width: 1465px;
+    max-width: 100%;
 }
 
 .third-section-title{
-    margin: 120px 150px 120px 0px;
+    max-width: 100%;
+    width: 595px;
 }
 
 .third-section-title button{
@@ -400,7 +411,6 @@ nav .navbar-menu .menu>li:hover{
 @media only screen and (min-width: 1400px){
     .third-section{
           padding-left: 390px;
-          max-width: none;
     }
 }
 
@@ -415,7 +425,6 @@ nav .navbar-menu .menu>li:hover{
     .third-section{
         flex-direction: column-reverse;
         margin: 0;
-        padding: 40px;
         background-color:#F2F6FF ;
     }
     
@@ -453,19 +462,19 @@ nav .navbar-menu .menu>li:hover{
 .fourth-section{
     display: flex;
     justify-content: space-between;
-    padding-right: 200px;
-    padding-left: 30px;
+    padding: 30px;
     margin-bottom: 60px;
-    max-width: 1470px;
-}
-
-.fourth-section-banner{
-    margin-right: 245px;
 }
 
 .fourth-section-banner>img{
+    max-width: 100%;
     width: 630px;
     height: 495px;
+}
+
+.fourth-section-title{
+    max-width: 100%;
+    width: 595px;
 }
 
 .fourth-section-form{
@@ -516,7 +525,6 @@ nav .navbar-menu .menu>li:hover{
 @media only screen and (min-width: 1400px){
     .fourth-section{
           padding-right: 390px;
-          max-width: none;
     }
 }
 
@@ -524,7 +532,6 @@ nav .navbar-menu .menu>li:hover{
     .fourth-section{
         flex-direction: column;
         margin: 0;
-        padding: 40px 40px 50px 40px;
         background-color: #F2F6FF;
     }
     
@@ -644,7 +651,6 @@ nav .navbar-menu .menu>li:hover{
         background-origin: none;
         background-size: none;
         background-color: #6DBBD9;
-        padding: 40px;
     }
     
     .fifth-section-container{
@@ -694,7 +700,6 @@ nav .navbar-menu .menu>li:hover{
 
 /* ======================================================== */
 .sixth-section{
-    /* margin: 100px 295px; */
     margin: auto;
     max-width: 1330px;
     padding: 100px 40px ;
@@ -795,10 +800,6 @@ nav .navbar-menu .menu>li:hover{
 }
 
 @media only screen and (max-width: 940px){
-    .sixth-section{
-        padding: 40px 40px 0 40px;
-    }
-    
     .sixth-section .main-content{
         flex-direction: column;
         align-items: center;
@@ -1050,10 +1051,6 @@ footer>.footer-main-content{
 }
 
 @media only screen and (max-width: 940px){
-    footer{
-        padding:40px;
-    }
-    
     footer>.footer-main-content{
         display: flex;
         justify-content: space-between;
