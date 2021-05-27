@@ -3,14 +3,14 @@ import '../../../assets/styles/Home/nav.home.scss'
 import motiveLogo from '../../../assets/images/logo/motive-zone-logo.png'
 import slashIcon from '../../../assets/images/icons/slash-icon.png'
 
-export default function NavBar(props) {
+export default function NavBar(props:any) {
 
-    const menuItemList = ['Home', 'Our Work', 'About US', 'Review', 'Contact US']
+    const menuItemList:string[] = ['Home', 'Our Work', 'About US', 'Review', 'Contact US'];
     const menuEle = menuItemList.map((item, index) => {
         return (
             <li key={index}><a href={'/'+ item.toLowerCase().replace(' ', '-')}>{item}</a></li>
         )
-    })
+    });
 
     return (
         <nav className="navbar">

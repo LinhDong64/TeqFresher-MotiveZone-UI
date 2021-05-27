@@ -2,7 +2,7 @@ import React from 'react'
 import '../../assets/styles/Contact/style.scss'
 import contactBanner from '../../assets/images/banners/working-banner.png'
 
-export default function Contact(props) {
+export default function Contact(props:any) {
 
 
     return (

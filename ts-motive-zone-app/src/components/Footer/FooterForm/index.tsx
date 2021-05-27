@@ -1,7 +1,7 @@
 import React from 'react'
 import '../../../assets/styles/Footer/form.footer.scss'
 
-export default function FooterForm(props) {
+export default function FooterForm(props:any) {
 
 
     return (

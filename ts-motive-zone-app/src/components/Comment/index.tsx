@@ -9,15 +9,20 @@ import instacartLogo from '../../assets/images/logo/instacart.png'
 import paypalLogo from '../../assets/images/logo/paypal.png'
 import googleLogo from '../../assets/images/logo/google.png'
 
-export default function Comment(props) {
-    const brands=[
+export default function Comment(props:any) {
+    interface Brand{
+        id: number;
+        name: string;
+        img: string;
+    }
+    const brands: Brand[]=[
         {id: 0, name:'Booking', img: bookingLogo},
         {id: 0, name:'Instacart', img:instacartLogo },
         {id: 0, name:'Paypal', img:paypalLogo },
         {id: 0, name:'Google', img: googleLogo},
     ]
 
-    const brandsEle=brands.map((brand, index)=>{
+    const brandsEle: any = brands.map((brand, index)=>{
         return(
             <li key={index}><img src={brand.img} alt={brand.name}/></li>
         )

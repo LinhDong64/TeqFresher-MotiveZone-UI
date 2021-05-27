@@ -2,7 +2,7 @@ import React from 'react'
 import '../../assets/styles/Supporting/style.scss'
 import supportBanner from '../../assets/images/banners/helping-banner.png'
 
-export default function Support(props) {
+export default function Support(props:any) {
 
 
     return (

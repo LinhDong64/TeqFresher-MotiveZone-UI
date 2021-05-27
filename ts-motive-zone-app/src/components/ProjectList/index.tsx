@@ -5,8 +5,15 @@ import lastestProject2 from '../../assets/images/projects/lastest-project-p2.png
 import lastestProject3 from '../../assets/images/projects/lastest-project-p3.png'
 import ProjectItem from './ProjectItem'
 
-export default function ProjectList(props) {
-    const items = [
+export default function ProjectList(props:any) {
+    interface ProjectItem{
+        id: number;
+        projectTitle:string;
+        projectInfo:string;
+        img: string;
+    }
+
+    const items: ProjectItem[] = [
         {
             id:0,
             projectTitle: 'Business &amp; corporate',

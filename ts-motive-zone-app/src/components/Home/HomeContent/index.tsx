@@ -3,7 +3,7 @@ import '../../../assets/styles/Home/content.home.scss'
 import lineIcon from '../../../assets/images/icons/line-icon.png'
 import homeBanner from '../../../assets/images/banners/home-banner.png'
 
-export default function HomeContent(props) {
+export default function HomeContent(props:any) {
 
 
     return (

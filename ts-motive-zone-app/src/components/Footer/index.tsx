@@ -3,8 +3,30 @@ import '../../assets/styles/Footer/style.scss'
 import motiveLogo from '../../assets/images/logo/motive-zone-logo.png'
 import FooterForm from './FooterForm'
 
-export default function Footer(props) {
-    const verticalListData = [
+export default function Footer(props:any) {
+    interface VerticalItem{
+        id: number;
+        title: string;
+    }
+
+    interface VerticalList{
+        id: number;
+        title: string,
+        data: VerticalItem[];
+    }
+
+    interface Icon{
+        id: number;
+        name: string;
+        icon: string;
+    }
+
+    interface Policy{
+        id: number;
+        text: string;
+    }
+
+    const verticalListData: VerticalList[] = [
         {
             id: 0,
             title:'Company',
@@ -41,19 +63,19 @@ export default function Footer(props) {
         
     ]
 
-    const icons=[
+    const icons:Icon[]=[
         {id: 0, name: 'facebook', icon: 'fa fa-facebook'},
         {id: 1, name: 'twitter', icon: 'fa fa-twitter'},
         {id: 2, name: 'youtube', icon: 'fa fa-youtube-play'},
     ]
 
-    const policyList = [
+    const policyList:Policy[] = [
         {id: 0, text: 'Terms of Service'},
         {id: 1, text: 'Privacy Policy'},
         {id: 2, text: 'Security'}
     ]
 
-    const verticalListEle = verticalListData.map((item, index)=>{
+    const verticalListEle:any = verticalListData.map((item: VerticalList, index:number)=>{
         return (
             <ul className="footer__vertical-list" key={index}>
                 <li className="title">{item.title}</li>
@@ -68,13 +90,13 @@ export default function Footer(props) {
         )
     })
 
-    const iconsEle=icons.map((icon, index)=>{
+    const iconsEle:any =icons.map((icon, index)=>{
         return (
             <li className={icon.name} key={index}><i className={icon.icon}/></li>
         )
     })
 
-    const policiesEle = policyList.map((policy, index)=>{
+    const policiesEle:any = policyList.map((policy, index)=>{
         return(
             <li className="footer-bottom__policy" key={index}><a href='/' className="footer__bottom--text">{policy.text}</a></li>
         )

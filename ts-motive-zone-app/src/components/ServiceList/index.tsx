@@ -5,8 +5,15 @@ import serviceIcon2 from '../../assets/images/icons/service-icon-2.png'
 import serviceIcon3 from '../../assets/images/icons/service-icon-3.png'
 import '../../assets/styles/ServiceList/style.scss'
 
-export default function ServiceList(props) {
-    const items = [
+export default function ServiceList(props:any) {
+    interface ServiceItem{
+        id:number;
+        img: string;
+        title:string;
+        textContent:string;
+    }
+
+    const items:ServiceItem[] = [
         {
             id: 0,
             img: serviceIcon1,

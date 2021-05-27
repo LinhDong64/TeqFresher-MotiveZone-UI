@@ -1,7 +1,7 @@
 import React from 'react'
 import '../../../assets/styles/ProjectList/item.project.scss'
 
-export default function ProjectItem(props) {
+export default function ProjectItem(props:any) {
 
     return (
         <li>
