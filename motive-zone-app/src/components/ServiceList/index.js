@@ -3,7 +3,7 @@ import ServiceItem from './ServiceItem'
 import serviceIcon1 from '../../assets/images/icons/service-icon-1.png'
 import serviceIcon2 from '../../assets/images/icons/service-icon-2.png'
 import serviceIcon3 from '../../assets/images/icons/service-icon-3.png'
-import './style.css'
+import '../../assets/styles/ServiceList/style.css'
 
 export default function ServiceList(props) {
     const items = [

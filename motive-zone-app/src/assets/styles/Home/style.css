@@ -4,7 +4,7 @@
     height: auto;
 }
 .home-background{
-    background-image: url('../../assets/images/backgrounds/home-background.png');
+    background-image: url('../../images/backgrounds/home-background.png');
     background-repeat: no-repeat;
     background-origin: content-box;
     background-size: cover;

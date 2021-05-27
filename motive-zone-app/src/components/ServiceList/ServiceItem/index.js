@@ -1,5 +1,5 @@
 import React from 'react'
-import './style.css'
+import '../../../assets/styles/ServiceList/item.service.css'
 
 export default function ServiceItem(props) {
     return (

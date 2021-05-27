@@ -1,5 +1,5 @@
 import React from 'react'
-import './style.css'
+import '../../assets/styles/Contact/style.css'
 import contactBanner from '../../assets/images/banners/working-banner.png'
 
 export default function Contact(props) {

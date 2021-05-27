@@ -1,5 +1,5 @@
 import React from 'react'
-import './style.css'
+import '../../../assets/styles/Home/content.home.css'
 import lineIcon from '../../../assets/images/icons/line-icon.png'
 import homeBanner from '../../../assets/images/banners/home-banner.png'
 

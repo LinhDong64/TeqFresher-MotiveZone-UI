@@ -1,5 +1,5 @@
 import React from 'react'
-import './style.css'
+import '../../assets/styles/Support/style.css'
 import supportBanner from '../../assets/images/banners/helping-banner.png'
 
 export default function Support(props) {

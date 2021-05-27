@@ -1,5 +1,5 @@
 import React from 'react'
-import './style.css'
+import '../../../assets/styles/Home/nav.home.css'
 import motiveLogo from '../../../assets/images/logo/motive-zone-logo.png'
 import slashIcon from '../../../assets/images/icons/slash-icon.png'
 

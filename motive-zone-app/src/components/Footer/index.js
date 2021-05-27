@@ -1,5 +1,5 @@
 import React from 'react'
-import './style.css'
+import '../../assets/styles/Footer/style.css'
 import motiveLogo from '../../assets/images/logo/motive-zone-logo.png'
 import FooterForm from './FooterForm'
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import './style.css'
+import '../../../assets/styles/Footer/form.footer.css'
 
 export default function FooterForm(props) {
 
