@@ -1,0 +1,102 @@
+.contact-section{
+    display: flex;
+    justify-content: space-between;
+    padding: 30px;
+    margin-bottom: 60px;
+}
+
+.contact-section__banner{
+    img{
+        max-width: 100%;
+        width: 630px;
+        height: 495px;
+    }
+}
+
+.contact-section__title{
+    max-width: 100%;
+    width: 595px;
+    form{
+        margin-right: 55px;
+
+        .form__input-group{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            margin-bottom: 25px;
+            input{
+                background-color: #FAF9F7;
+                border: 1px solid #EDE5D9;
+                font-size: 15px;   
+                outline: none;
+                padding: 20px;
+                &:nth-child(2){
+                    margin: 25px 0;
+                }
+            }
+            
+        }
+        span{
+            font-size: 15px;
+            color: #498AB3;
+            font-weight: bold;
+        }
+        .form__button{
+            display: flex;
+            justify-content: flex-end;
+            button{
+                padding: 15px 35px;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 1200px){
+    .contact-section__banner{
+        img{
+            width: 100%;
+            height: auto;
+        }
+    }
+}
+
+@media only screen and (min-width: 1400px){
+    .contact-section{
+          padding-right: 390px;
+    }
+}
+
+@media only screen and (max-width: 940px){
+    .contact-section{
+        flex-direction: column;
+        margin: 0;
+        background-color: #F2F6FF;
+    }
+    
+    .contact-section__banner{
+        margin-right: 0;
+        margin-bottom: 60px;
+        img{
+            width: 100%;
+            height: auto;
+        }
+    }
+    
+    .contact-section__title{
+        h3{
+            font-size: 14px;
+            font-weight: bold;
+        }
+    }
+    
+    .contact-section__title{
+        form{
+            margin-right: 0;
+            margin-top: 30px;
+            .form__button{
+                justify-content: center;
+                margin-top: 10px;
+            }
+        }
+    }
+}

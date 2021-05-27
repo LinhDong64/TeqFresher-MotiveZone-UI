@@ -1,0 +1,25 @@
+.project__description{
+    span{
+        font-size: 20px;
+        margin-bottom: 20px;
+        display: inline-block;
+        color: #FFFFFF;
+    }
+    p{
+        color: #FFFFFF;
+    }
+    a{
+        font-size: 15px;
+        color: #FF9C00;
+        text-decoration: none;
+    }
+}
+
+@media only screen and (max-width: 940px){
+    .project__description{
+        span{
+            -webkit-text-stroke-width: 1px;
+            -webkit-text-stroke-color: #1B498A;
+        }
+    }
+}
