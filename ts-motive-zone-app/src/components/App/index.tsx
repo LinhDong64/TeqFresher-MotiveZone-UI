@@ -6,7 +6,7 @@ import ProjectList from '../ProjectList'
 import Comment from '../Comment'
 import Footer from '../Footer'
 
-function App() {
+const App: React.FC=()=> {
   return (
     <div>
       <main>

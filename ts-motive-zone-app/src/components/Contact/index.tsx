@@ -1,9 +1,40 @@
 import React from 'react'
 import '../../assets/styles/Contact/style.scss'
 import contactBanner from '../../assets/images/banners/working-banner.png'
+import {useDispatch, useSelector} from 'react-redux'
+import {submitContactForm} from '../../actions'
+import { useState } from 'react'
 
 export default function Contact(props:any) {
 
+    // const [fullName, setFullName]=useState('');
+    // const [email, setEmail]=useState('');
+    // const [message, setMessage]=useState('');
+
+    let formData:any = useSelector(state => state);
+    const dispatch = useDispatch();
+    console.log(formData.form.data);
+
+    function handleOnchangeFullName(e:React.InputHTMLAttributes<HTMLInputElement>){
+    }
+
+    function handleOnchangeEmail(){
+
+    }
+
+    function handleOnchangeMessage(){
+
+    }
+    
+    function handlePolicyText_onClick(){
+    }
+
+    function handleSend_Click(e: React.MouseEvent<HTMLButtonElement>){
+        e.preventDefault();
+        dispatch(submitContactForm(
+            'linhdong', 'linhdong@gmail.com', "test"
+        ))
+    }
 
     return (
         <section className="contact-section">
@@ -22,13 +53,13 @@ export default function Contact(props:any) {
                 </div>
                 <form>
                     <div className="form__input-group">
-                        <input type="text" placeholder="Full name" />
-                        <input type="text" placeholder="Enter your email address" />
-                        <input type="text" placeholder="Message" />
+                        <input type="text" value={formData.fullName} onChange={handleOnchangeFullName} name="txtFullname" placeholder="Full name" />
+                        <input type="text"  value={formData.email} onChange={handleOnchangeEmail} name="txtEmail" placeholder="Enter your email address" />
+                        <input type="text"  value={formData.message} onChange={handleOnchangeMessage} name="txtMessage" placeholder="Message" />
                     </div>
-                    <span>Privacy Policy</span>
+                    <span onClick={handlePolicyText_onClick}>Privacy Policy</span>
                     <div className="form__button">
-                        <button className="global__button">Send</button>
+                        <button type="submit" className="global__button" onClick={handleSend_Click}>Send</button>
                     </div>
                 </form>
             </div>
