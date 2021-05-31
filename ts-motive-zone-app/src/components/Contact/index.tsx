@@ -2,32 +2,30 @@ import React from 'react'
 import '../../assets/styles/Contact/style.scss'
 import contactBanner from '../../assets/images/banners/working-banner.png'
 import { useDispatch, useSelector } from 'react-redux'
-import { submitContactForm, onChangeFullName, onChangeEmail, onChangeMessage } from '../../actions'
-import { useState } from 'react'
+import { submitContactForm, onChangeFullName,
+         onChangeEmail, onChangeMessage,CONSTANTS} from './contactActions'
 
 export default function Contact(props: any) {
     const state: any = useSelector(state => state);
     const dispatch = useDispatch();
     const formData = { ...state.form };
-    //console.log("data from store", formData);
 
-    // const [fullName, setFullName] = useState('hello');
-    // console.log(fullName);
-
-
-    function handleOnchangeFullName(e: any) {
+    function handleOnchange(e: any, actionType:string) {
         let value = e.target.value;
-        dispatch(onChangeFullName(value));
-    }
-
-    function handleOnchangeEmail(e:any) {
-        let value = e.target.value;
-        dispatch(onChangeEmail(value));
-    }
-
-    function handleOnchangeMessage(e:any) {
-        let value = e.target.value;
-        dispatch(onChangeMessage(value));
+        switch (actionType){
+            case CONSTANTS.ONCHANGE_FULLNAME:{
+                dispatch({type:'ONCHANGE',payload:{fullName:value} });
+                break;
+            }
+            case CONSTANTS.ONCHANGE_EMAIL:{
+                dispatch(onChangeEmail(value));
+                break;
+            }
+            case CONSTANTS.ONCHANGE_MESSAGE:{
+                dispatch(onChangeMessage(value));
+                break;
+            }
+        }
     }
 
     function handlePolicyText_onClick() {
@@ -39,6 +37,10 @@ export default function Contact(props: any) {
             'linhdong', 'linhdong@gmail.com', "test"
         ))
     }
+
+    let fullNameWarningMessage = formData.isShowWarning_FullName  && <span className="span--warning">{formData.fullNameWarningMessage}</span>;
+    let emailWarningMessage = formData.isShowWarning_Email && <span className="span--warning">{formData.emailWarningMessage}</span>;
+    let messageWarningMessage = formData.isShowWarning_Message  && <span className="span--warning">{formData.messageWarningMessage}</span>;
 
     return (
         <section className="contact-section">
@@ -58,16 +60,16 @@ export default function Contact(props: any) {
                 <form>
                     <div className="form__input-group">
                         <div>
-                            <input className={formData.isShowFullName_Warning ? "warning" : ''} type="text" onChange={handleOnchangeFullName} name="txtFullname" placeholder="Full name" />
-                            {formData.isShowFullName_Warning && <span className="span--warning">Please enter a full name!</span>}
+                            <input className={formData.isShowWarning_FullName ? "warning" : ''} type="text" onChange={(e)=>handleOnchange(e,CONSTANTS.ONCHANGE_FULLNAME)} placeholder="Full name" />
+                            {fullNameWarningMessage}
                         </div>
                         <div>
-                            <input className={formData.isShowEmail_Warning ? "warning" : ''} type="text" onChange={handleOnchangeEmail} name="txtEmail" placeholder="Enter your email address" />
-                            {formData.isShowEmail_Warning && <span className="span--warning">Please enter a email!</span>}
+                            <input className={formData.isShowWarning_Email ? "warning" : ''} type="text" onChange={(e)=>handleOnchange(e,CONSTANTS.ONCHANGE_EMAIL)} placeholder="Enter your email address" />
+                            {emailWarningMessage}
                         </div>
                         <div>
-                            <input className={formData.isShowMessage_Warning ? "warning" : ''} type="text" onChange={handleOnchangeMessage} name="txtMessage" placeholder="Message" />
-                            {formData.isShowMessage_Warning && <span className="span--warning">Please enter a messages!</span>}
+                            <input className={formData.isShowWarning_Message ? "warning" : ''} type="text" onChange={(e)=>handleOnchange(e,CONSTANTS.ONCHANGE_MESSAGE)} placeholder="Message" />
+                            {messageWarningMessage}
                         </div>
                     </div>
                     <span onClick={handlePolicyText_onClick}>Privacy Policy</span>
