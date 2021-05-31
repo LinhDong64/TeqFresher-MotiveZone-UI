@@ -1,15 +1,9 @@
-import { call, put, takeEvery, takeLatest } from 'redux-saga/effects';
-import {CONSTANTS} from './appActions'
-import contactSaga from '../Contact/contactSaga'
-
-// function* workerSaga(){
-    // console.log('Hey from worker saga');
-    // 
-// }
+import { takeLatest } from 'redux-saga/effects';
+import* as contactSaga from '../Contact/contactSaga'
 
 function* rootSaga(){
-    yield takeEvery('ONCHANGE', contactSaga);
-    //yield takeLatest(CONSTANTS.ONCHANGE_FULLNAME, contactSaga);
+    yield takeLatest('CHECK_FULLNAME', contactSaga.checkFullName);
+    yield takeLatest('CHECK_EMAIL', contactSaga.checkEmail);
 }
 
 export default rootSaga;

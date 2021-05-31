@@ -14,15 +14,15 @@ export default function Contact(props: any) {
         let value = e.target.value;
         switch (actionType){
             case CONSTANTS.ONCHANGE_FULLNAME:{
-                dispatch({type:'ONCHANGE',payload:{fullName:value} });
+                dispatch({type:'CHECK_FULLNAME',payload:{data:value} });
                 break;
             }
             case CONSTANTS.ONCHANGE_EMAIL:{
-                dispatch(onChangeEmail(value));
+                dispatch({type:'CHECK_EMAIL', payload:{data:value}});
                 break;
             }
             case CONSTANTS.ONCHANGE_MESSAGE:{
-                dispatch(onChangeMessage(value));
+                dispatch({type:'CHECK_MESSAGE', payload:{data:value}});
                 break;
             }
         }
@@ -38,9 +38,9 @@ export default function Contact(props: any) {
         ))
     }
 
-    let fullNameWarningMessage = formData.isShowWarning_FullName  && <span className="span--warning">{formData.fullNameWarningMessage}</span>;
-    let emailWarningMessage = formData.isShowWarning_Email && <span className="span--warning">{formData.emailWarningMessage}</span>;
-    let messageWarningMessage = formData.isShowWarning_Message  && <span className="span--warning">{formData.messageWarningMessage}</span>;
+    let fullNameWarningMess = formData.isShowWarning_FullName  && <span className="span--warning">{formData.fullNameWarningMess}</span>;
+    let emailWarningMess= formData.isShowWarning_Email && <span className="span--warning">{formData.emailWarningMess}</span>;
+    let messageWarningMess = formData.isShowWarning_Message  && <span className="span--warning">{formData.messageWarningMess}</span>;
 
     return (
         <section className="contact-section">
@@ -61,15 +61,15 @@ export default function Contact(props: any) {
                     <div className="form__input-group">
                         <div>
                             <input className={formData.isShowWarning_FullName ? "warning" : ''} type="text" onChange={(e)=>handleOnchange(e,CONSTANTS.ONCHANGE_FULLNAME)} placeholder="Full name" />
-                            {fullNameWarningMessage}
+                            {fullNameWarningMess}
                         </div>
                         <div>
                             <input className={formData.isShowWarning_Email ? "warning" : ''} type="text" onChange={(e)=>handleOnchange(e,CONSTANTS.ONCHANGE_EMAIL)} placeholder="Enter your email address" />
-                            {emailWarningMessage}
+                            {emailWarningMess}
                         </div>
                         <div>
                             <input className={formData.isShowWarning_Message ? "warning" : ''} type="text" onChange={(e)=>handleOnchange(e,CONSTANTS.ONCHANGE_MESSAGE)} placeholder="Message" />
-                            {messageWarningMessage}
+                            {messageWarningMess}
                         </div>
                     </div>
                     <span onClick={handlePolicyText_onClick}>Privacy Policy</span>

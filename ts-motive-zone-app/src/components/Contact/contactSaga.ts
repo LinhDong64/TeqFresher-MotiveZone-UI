@@ -1,13 +1,13 @@
-import { call, put, takeLatest } from 'redux-saga/effects';
+import { call, put} from 'redux-saga/effects';
 import {CONSTANTS} from './contactActions'
 import * as validateFunction from '../../utils/function/validateContactForm'
 
-function* contactSaga(action:any){
-    const data:object = yield call(validateFunction.validateFullName, action.payload.fullName);
-    console.log('from contact saga', data);
-    
+export function* checkFullName(action:any){
+    const data:object = yield call(validateFunction.validateFullName, action.payload.data);
     yield put({type: CONSTANTS.ONCHANGE_FULLNAME, data });
-    //console.log('Hey from contact saga');
 }
 
-export default contactSaga;
+export function* checkEmail(action:any){
+    const data:object = yield call(validateFunction.validateEmail, action.payload.data);
+    yield put({type: CONSTANTS.ONCHANGE_EMAIL, data });
+}
