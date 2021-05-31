@@ -24,19 +24,23 @@
             flex-direction: column;
             justify-content: space-between;
             margin-bottom: 25px;
-            input{
-                background-color: #FAF9F7;
-                border: 1px solid #EDE5D9;
-                font-size: 15px;   
-                outline: none;
-                padding: 20px;
+            div{
+                input{
+                    background-color: #FAF9F7;
+                    border: 1px solid #EDE5D9;
+                    font-size: 15px;   
+                    outline: none;
+                    padding: 20px;
+                    width: 100%;
+                }
                 &:nth-child(2){
                     margin: 25px 0;
                 }
+
             }
             
         }
-        span{
+        &>span{
             font-size: 15px;
             color: #498AB3;
             font-weight: bold;
@@ -52,6 +56,14 @@
             }
         }
     }
+}
+.warning{
+    border: 1px solid red !important;
+}
+.span--warning{
+    display: inline-block;
+    margin-top: 5px;
+    color: red !important;
 }
 
 @media only screen and (max-width: 1200px){
