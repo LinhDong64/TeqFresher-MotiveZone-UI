@@ -22,3 +22,7 @@ export function* sendForm(action:any){
     const data:object = yield call(callAPI.sendContactForm, action.payload);
     yield put(contactActions.submitContactForm(data));
 }
+
+export function* resetForm(){
+    yield put(contactActions.resetForm());
+}

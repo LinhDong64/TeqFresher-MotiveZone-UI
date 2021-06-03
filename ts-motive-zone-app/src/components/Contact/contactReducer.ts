@@ -1,57 +1,79 @@
-import {CONSTANTS} from './contactActions'
+import { CONSTANTS } from './contactActions'
 
 const initialState = {
-    dataToSend:{
-        fullName:'',
+    dataToSend: {
+        fullName: '',
         email: '',
         message: ''
     },
-    dataReceived:{},
-    isShowWarning_FullName:false,
-    isShowWarning_Email:false,
-    isShowWarning_Message:false,
-    fullNameWarningMess:'',
-    emailWarningMess:'',
-    messageWarningMess:''
+    dataReceived: {},
+    isShowWarningFullName: false,
+    isShowWarningEmail: false,
+    isShowWarningMessage: false,
+    fullNameWarningMess: '',
+    emailWarningMess: '',
+    messageWarningMess: ''
 };
 
-const formReducer = (state=initialState, action:any)=>{
-    switch(action.type){
-        case CONSTANTS.SUBMIT_CONTACT_FORM:{
-            let newState = {...state};
-            newState.dataReceived = {...action.payload};
-            newState.dataToSend.fullName= newState.dataToSend.email= newState.dataToSend.message='';
+const formReducer = (state = initialState, action: any) => {
+    switch (action.type) {
+        case CONSTANTS.SUBMIT_CONTACT_FORM: {
+            let newState = { ...state };
+            newState.dataReceived = { ...action.payload };
 
             return newState;
         }
 
-        case CONSTANTS.ONCHANGE_FULLNAME:{
-            let newState = {...state,
-                isShowWarning_FullName:action.payload.invalid || '',
-                fullNameWarningMess:action.payload.warningMessage || '',
+        case CONSTANTS.ONCHANGE_FULLNAME: {
+            let newState = {
+                ...state,
+                isShowWarningFullName: action.payload.invalid || '',
+                fullNameWarningMess: action.payload.warningMessage || '',
             };
-                newState.dataToSend.fullName = action.payload.data || '';
+            newState.dataToSend.fullName = action.payload.data || '';
 
             return newState;
         }
 
-        case CONSTANTS.ONCHANGE_EMAIL:{
-            let newState = {...state,
-                isShowWarning_Email:action.payload.invalid || '',
-                emailWarningMess:action.payload.warningMessage || ''
+        case CONSTANTS.ONCHANGE_EMAIL: {
+            let newState = {
+                ...state,
+                isShowWarningEmail: action.payload.invalid || '',
+                emailWarningMess: action.payload.warningMessage || ''
             };
             newState.dataToSend.email = action.payload.data || '';
+        
             return newState;
         }
 
-        case CONSTANTS.ONCHANGE_MESSAGE:{
-            let newState = {...state,
-                isShowWarning_Message: action.payload.invalid || '',
-                messageWarningMess: action.payload.warningMessage ||'',
+        case CONSTANTS.ONCHANGE_MESSAGE: {
+            let newState = {
+                ...state,
+                isShowWarningMessage: action.payload.invalid || '',
+                messageWarningMess: action.payload.warningMessage || '',
             };
             newState.dataToSend.message = action.payload.data || '';
+
             return newState;
         }
+
+        case CONSTANTS.RESET_FORM_DATA: {
+            return {
+                dataToSend: {
+                    fullName: '',
+                    email: '',
+                    message: ''
+                },
+                dataReceived: {},
+                isShowWarningFullName: false,
+                isShowWarningEmail: false,
+                isShowWarningMessage: false,
+                fullNameWarningMess: '',
+                emailWarningMess: '',
+                messageWarningMess: ''
+            }
+        }
+
         default:
             return state;
     }
