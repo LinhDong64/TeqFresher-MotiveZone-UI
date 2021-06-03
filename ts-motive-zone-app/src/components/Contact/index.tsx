@@ -1,14 +1,16 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import '../../assets/styles/Contact/style.scss'
 import contactBanner from '../../assets/images/banners/working-banner.png'
 import { useDispatch, useSelector } from 'react-redux'
 import { CONSTANTS } from './contactActions'
+import Swal from 'sweetalert2'
 
 export default function Contact(props: any) {
     const state: any = useSelector(state => state);
     const dispatch = useDispatch();
     const formData = { ...state.form };
-    // console.log('form data', formData);
+    console.log(formData.dataReceived);
+    
    
     function handleOnchange(e: any, actionType: string) {
         let value = e.target.value;
@@ -45,6 +47,17 @@ export default function Contact(props: any) {
     let emailWarningMess = formData.isShowWarning_Email && <span className="span--warning">{formData.emailWarningMess}</span>;
     let messageWarningMess = formData.isShowWarning_Message && <span className="span--warning">{formData.messageWarningMess}</span>;
 
+    useEffect(()=>{
+        if(formData.dataReceived.status === 200){
+            Swal.fire({
+                icon: 'success',
+                title: 'Successfully!',
+                showConfirmButton: false,
+                timer: 2000
+              })
+        }
+    });
+
     return (
         <section className="contact-section">
             <div className="contact-section__banner">
@@ -63,17 +76,17 @@ export default function Contact(props: any) {
                 <form>
                     <div className="form__input-group">
                         <div>
-                            <input className={formData.isShowWarning_FullName ? "warning" : ''} type="text" id="txtFullName"
+                            <input className={formData.isShowWarning_FullName ? "warning" : ''} type="text"
                              onChange={(e) => handleOnchange(e, CONSTANTS.ONCHANGE_FULLNAME)} placeholder="Full name" />
                             {fullNameWarningMess}
                         </div>
                         <div>
-                            <input className={formData.isShowWarning_Email ? "warning" : ''} type="text" id="txtEmail"
+                            <input className={formData.isShowWarning_Email ? "warning" : ''} type="text"
                              onChange={(e) => handleOnchange(e, CONSTANTS.ONCHANGE_EMAIL)} placeholder="Enter your email address" />
                             {emailWarningMess}
                         </div>
                         <div>
-                            <input className={formData.isShowWarning_Message ? "warning" : ''} type="text" id="txtMessage"
+                            <input className={formData.isShowWarning_Message ? "warning" : ''} type="text"
                              onChange={(e) => handleOnchange(e, CONSTANTS.ONCHANGE_MESSAGE)} placeholder="Message" />
                             {messageWarningMess}
                         </div>

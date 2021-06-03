@@ -1,24 +1,24 @@
 import { call, put} from 'redux-saga/effects';
-import {CONSTANTS} from './contactActions'
+import * as contactActions from './contactActions'
 import * as validateFunction from '../../utils/function/validateContactForm'
-import * as callAPI from '../../utils/function/callAPI'
+import * as callAPI from '../../services/callAPI'
 
 export function* checkFullName(action:any){
     const data:object = yield call(validateFunction.validateFullName, action.payload.data);
-    yield put({type: CONSTANTS.ONCHANGE_FULLNAME, payload:data });
+    yield put(contactActions.onChangeFullName(data));
 }
 
 export function* checkEmail(action:any){
     const data:object = yield call(validateFunction.validateEmail, action.payload.data);
-    yield put({type: CONSTANTS.ONCHANGE_EMAIL, payload:data });
+    yield put(contactActions.onChangeEmail(data));
 }
 
 export function* checkMessage(action:any){
     const data:object = yield call(validateFunction.validateMessage, action.payload.data);
-    yield put({type: CONSTANTS.ONCHANGE_MESSAGE , payload:data });
+    yield put(contactActions.onChangeMessage(data));
 }
 
 export function* sendForm(action:any){
     const data:object = yield call(callAPI.sendContactForm, action.payload);
-    yield put({type: CONSTANTS.SUBMIT_CONTACT_FORM , payload:data });
+    yield put(contactActions.submitContactForm(data));
 }

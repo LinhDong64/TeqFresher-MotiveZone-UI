@@ -8,35 +8,27 @@ export const CONSTANTS={
 export const submitContactForm = (data:any)=>{
     return{
         type: CONSTANTS.SUBMIT_CONTACT_FORM,
-        payload:{
-            dataReceived:data
-        }
+         payload: {...data}
     }
 }
 
-export const onChangeFullName = (fullName: string)=>{
+export const onChangeFullName = (data: object)=>{
     return{
         type: CONSTANTS.ONCHANGE_FULLNAME,
-        payload: {
-            fullName
-        }
+        payload: {...data}
     }
 }
 
-export const onChangeEmail = (email: string)=>{
+export const onChangeEmail = (data: object)=>{
     return {
         type: CONSTANTS.ONCHANGE_EMAIL,
-        payload: {
-            email
-        }
+        payload: {...data}
     }
 }
 
-export const onChangeMessage = (message:string)=>{
+export const onChangeMessage = (data:object)=>{
     return {
         type: CONSTANTS.ONCHANGE_MESSAGE,
-        payload:{
-            message
-        }
+        payload: {...data}
     }
 }
