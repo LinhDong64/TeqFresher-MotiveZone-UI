@@ -5,13 +5,11 @@ export const CONSTANTS={
     ONCHANGE_MESSAGE: "ONCHANGE_MESSAGE"
 }
 
-export const submitContactForm = (fullName:string, email:string, message:string)=>{
+export const submitContactForm = (data:any)=>{
     return{
         type: CONSTANTS.SUBMIT_CONTACT_FORM,
         payload:{
-            fullName, 
-            email,
-            message
+            dataReceived:data
         }
     }
 }

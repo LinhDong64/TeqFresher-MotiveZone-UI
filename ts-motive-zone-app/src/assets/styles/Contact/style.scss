@@ -66,6 +66,10 @@
     color: red !important;
 }
 
+.disable-button{
+    cursor: not-allowed;
+}
+
 @media only screen and (max-width: 1200px){
     .contact-section__banner{
         img{

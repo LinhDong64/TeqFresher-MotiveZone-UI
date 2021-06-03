@@ -8,14 +8,14 @@ export const validateFullName=(fullName:string)=>{
     }else{
         return{
             invalid: false,
-            warningMessage:''
+            warningMessage:'',
+            data: fullName
         }
     }
 }
 
 export const validateEmail =(email:string)=>{
-    console.log('validate email', email);
-    
+
     if(email === ""){
         return{
             invalid:true,
@@ -32,7 +32,8 @@ export const validateEmail =(email:string)=>{
         }else{
             return{
                 invalid: false,
-                warningMessage:''
+                warningMessage:'',
+                data: email
             }
         }
     }
@@ -47,7 +48,8 @@ export const validateMessage = (message:string)=>{
     }else{
         return{
             invalid: false,
-            warningMessage:''
+            warningMessage:'',
+            data: message
         }
     }
 }

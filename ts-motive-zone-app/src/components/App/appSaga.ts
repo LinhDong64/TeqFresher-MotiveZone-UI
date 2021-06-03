@@ -5,6 +5,7 @@ function* rootSaga(){
     yield takeLatest('CHECK_FULLNAME', contactSaga.checkFullName);
     yield takeLatest('CHECK_EMAIL', contactSaga.checkEmail);
     yield takeLatest('CHECK_MESSAGE', contactSaga.checkMessage);
+    yield takeLatest('SEND_FORM', contactSaga.sendForm);
 }
 
 export default rootSaga;

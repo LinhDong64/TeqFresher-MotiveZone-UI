@@ -2,44 +2,48 @@ import React from 'react'
 import '../../assets/styles/Contact/style.scss'
 import contactBanner from '../../assets/images/banners/working-banner.png'
 import { useDispatch, useSelector } from 'react-redux'
-import { submitContactForm,CONSTANTS} from './contactActions'
+import { CONSTANTS } from './contactActions'
 
 export default function Contact(props: any) {
     const state: any = useSelector(state => state);
     const dispatch = useDispatch();
     const formData = { ...state.form };
-
-    function handleOnchange(e: any, actionType:string) {
+    // console.log('form data', formData);
+   
+    function handleOnchange(e: any, actionType: string) {
         let value = e.target.value;
-        switch (actionType){
-            case CONSTANTS.ONCHANGE_FULLNAME:{
-                dispatch({type:'CHECK_FULLNAME',payload:{data:value} });
+        switch (actionType) {
+            case CONSTANTS.ONCHANGE_FULLNAME: {
+                dispatch({ type: 'CHECK_FULLNAME', payload: { data: value } });
                 break;
             }
-            case CONSTANTS.ONCHANGE_EMAIL:{
-                dispatch({type:'CHECK_EMAIL', payload:{data:value}});
+            case CONSTANTS.ONCHANGE_EMAIL: {
+                dispatch({ type: 'CHECK_EMAIL', payload: { data: value } });
                 break;
             }
-            case CONSTANTS.ONCHANGE_MESSAGE:{
-                dispatch({type:'CHECK_MESSAGE', payload:{data:value}});
+            case CONSTANTS.ONCHANGE_MESSAGE: {
+                dispatch({ type: 'CHECK_MESSAGE', payload: { data: value } });
                 break;
             }
         }
     }
 
-    function handlePolicyText_onClick() {
-    }
-
     function handleSend_Click(e: React.MouseEvent<HTMLButtonElement>) {
         e.preventDefault();
-        dispatch(submitContactForm(
-            'linhdong', 'linhdong@gmail.com', "test"
-        ))
+        dispatch({ type: 'SEND_FORM', payload: formData.dataToSend })
     }
 
-    let fullNameWarningMess = formData.isShowWarning_FullName  && <span className="span--warning">{formData.fullNameWarningMess}</span>;
-    let emailWarningMess= formData.isShowWarning_Email && <span className="span--warning">{formData.emailWarningMess}</span>;
-    let messageWarningMess = formData.isShowWarning_Message  && <span className="span--warning">{formData.messageWarningMess}</span>;
+    let isDisableButton = true;
+    if ((formData.isShowWarning_FullName || formData.isShowWarning_Email || formData.isShowWarning_Message) || 
+    !(formData.dataToSend.fullName && formData.dataToSend.email && formData.dataToSend.message)) {
+        isDisableButton = true;
+    } else {
+        isDisableButton = false;
+    }
+
+    let fullNameWarningMess = formData.isShowWarning_FullName && <span className="span--warning">{formData.fullNameWarningMess}</span>;
+    let emailWarningMess = formData.isShowWarning_Email && <span className="span--warning">{formData.emailWarningMess}</span>;
+    let messageWarningMess = formData.isShowWarning_Message && <span className="span--warning">{formData.messageWarningMess}</span>;
 
     return (
         <section className="contact-section">
@@ -59,21 +63,24 @@ export default function Contact(props: any) {
                 <form>
                     <div className="form__input-group">
                         <div>
-                            <input className={formData.isShowWarning_FullName ? "warning" : ''} type="text" onChange={(e)=>handleOnchange(e,CONSTANTS.ONCHANGE_FULLNAME)} placeholder="Full name" />
+                            <input className={formData.isShowWarning_FullName ? "warning" : ''} type="text" id="txtFullName"
+                             onChange={(e) => handleOnchange(e, CONSTANTS.ONCHANGE_FULLNAME)} placeholder="Full name" />
                             {fullNameWarningMess}
                         </div>
                         <div>
-                            <input className={formData.isShowWarning_Email ? "warning" : ''} type="text" onChange={(e)=>handleOnchange(e,CONSTANTS.ONCHANGE_EMAIL)} placeholder="Enter your email address" />
+                            <input className={formData.isShowWarning_Email ? "warning" : ''} type="text" id="txtEmail"
+                             onChange={(e) => handleOnchange(e, CONSTANTS.ONCHANGE_EMAIL)} placeholder="Enter your email address" />
                             {emailWarningMess}
                         </div>
                         <div>
-                            <input className={formData.isShowWarning_Message ? "warning" : ''} type="text" onChange={(e)=>handleOnchange(e,CONSTANTS.ONCHANGE_MESSAGE)} placeholder="Message" />
+                            <input className={formData.isShowWarning_Message ? "warning" : ''} type="text" id="txtMessage"
+                             onChange={(e) => handleOnchange(e, CONSTANTS.ONCHANGE_MESSAGE)} placeholder="Message" />
                             {messageWarningMess}
                         </div>
                     </div>
-                    <span onClick={handlePolicyText_onClick}>Privacy Policy</span>
+                    <span>Privacy Policy</span>
                     <div className="form__button">
-                        <button type="submit" className="global__button" onClick={handleSend_Click}>Send</button>
+                        <button type="submit" className={isDisableButton?"disable-button":"global__button"} onClick={handleSend_Click} disabled={isDisableButton}>Send</button>
                     </div>
                 </form>
             </div>
