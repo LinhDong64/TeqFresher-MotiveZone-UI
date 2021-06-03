@@ -14,20 +14,7 @@ export default function Contact(props: any) {
    
     function handleOnchange(e: any, actionType: string) {
         let value = e.target.value;
-        switch (actionType) {
-            case CONSTANTS.ONCHANGE_FULLNAME: {
-                dispatch({ type: 'CHECK_FULLNAME', payload: { data: value } });
-                break;
-            }
-            case CONSTANTS.ONCHANGE_EMAIL: {
-                dispatch({ type: 'CHECK_EMAIL', payload: { data: value } });
-                break;
-            }
-            case CONSTANTS.ONCHANGE_MESSAGE: {
-                dispatch({ type: 'CHECK_MESSAGE', payload: { data: value } });
-                break;
-            }
-        }
+        dispatch({ type:actionType, payload: { data: value } });
     }
 
     function handleSend_Click(e: React.MouseEvent<HTMLButtonElement>) {
@@ -77,17 +64,17 @@ export default function Contact(props: any) {
                     <div className="form__input-group">
                         <div>
                             <input className={formData.isShowWarning_FullName ? "warning" : ''} type="text"
-                             onChange={(e) => handleOnchange(e, CONSTANTS.ONCHANGE_FULLNAME)} placeholder="Full name" />
+                             onChange={(e) => handleOnchange(e, 'CHECK_FULLNAME')} placeholder="Full name" />
                             {fullNameWarningMess}
                         </div>
                         <div>
                             <input className={formData.isShowWarning_Email ? "warning" : ''} type="text"
-                             onChange={(e) => handleOnchange(e, CONSTANTS.ONCHANGE_EMAIL)} placeholder="Enter your email address" />
+                             onChange={(e) => handleOnchange(e,'CHECK_EMAIL')} placeholder="Enter your email address" />
                             {emailWarningMess}
                         </div>
                         <div>
                             <input className={formData.isShowWarning_Message ? "warning" : ''} type="text"
-                             onChange={(e) => handleOnchange(e, CONSTANTS.ONCHANGE_MESSAGE)} placeholder="Message" />
+                             onChange={(e) => handleOnchange(e, 'CHECK_MESSAGE')} placeholder="Message" />
                             {messageWarningMess}
                         </div>
                     </div>
