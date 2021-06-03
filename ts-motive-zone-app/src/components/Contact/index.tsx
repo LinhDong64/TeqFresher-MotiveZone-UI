@@ -2,8 +2,7 @@ import React from 'react'
 import '../../assets/styles/Contact/style.scss'
 import contactBanner from '../../assets/images/banners/working-banner.png'
 import { useDispatch, useSelector } from 'react-redux'
-import { submitContactForm, onChangeFullName,
-         onChangeEmail, onChangeMessage,CONSTANTS} from './contactActions'
+import { submitContactForm,CONSTANTS} from './contactActions'
 
 export default function Contact(props: any) {
     const state: any = useSelector(state => state);

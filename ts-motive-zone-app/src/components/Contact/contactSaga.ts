@@ -4,10 +4,15 @@ import * as validateFunction from '../../utils/function/validateContactForm'
 
 export function* checkFullName(action:any){
     const data:object = yield call(validateFunction.validateFullName, action.payload.data);
-    yield put({type: CONSTANTS.ONCHANGE_FULLNAME, data });
+    yield put({type: CONSTANTS.ONCHANGE_FULLNAME, payload:data });
 }
 
 export function* checkEmail(action:any){
     const data:object = yield call(validateFunction.validateEmail, action.payload.data);
-    yield put({type: CONSTANTS.ONCHANGE_EMAIL, data });
+    yield put({type: CONSTANTS.ONCHANGE_EMAIL, payload:data });
+}
+
+export function* checkMessage(action:any){
+    const data:object = yield call(validateFunction.validateMessage, action.payload.data);
+    yield put({type: CONSTANTS.ONCHANGE_MESSAGE , payload:data });
 }

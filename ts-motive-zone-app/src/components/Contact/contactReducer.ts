@@ -18,21 +18,28 @@ const formReducer = (state=initialState, action:any)=>{
         }
 
         case CONSTANTS.ONCHANGE_FULLNAME:{
-            let newState:object = {...state};
-            newState=Object.assign(newState,{isShowWarning_FullName:action.data.invalid || '',
-                 fullNameWarningMess:action.data.warningMessage || ''});
+            let newState = {...state,
+                isShowWarning_FullName:action.payload.invalid || '',
+                fullNameWarningMess:action.payload.warningMessage || ''};
+
             return newState;
         }
 
         case CONSTANTS.ONCHANGE_EMAIL:{
-            let newState:object = {...state};
-            newState=Object.assign(newState,{isShowWarning_Email:action.data.invalid || '',
-                emailWarningMess:action.data.warningMessage || ''});
+            let newState = {...state,
+                isShowWarning_Email:action.payload.invalid || '',
+                emailWarningMess:action.payload.warningMessage || ''
+            };
+
             return newState;
         }
 
         case CONSTANTS.ONCHANGE_MESSAGE:{
-            let newState:object = {...state};
+            let newState = {...state,
+                isShowWarning_Message: action.payload.invalid || '',
+                messageWarningMess: action.payload.warningMessage ||''
+            };
+            
             return newState;
         }
         default:
