@@ -1,7 +1,7 @@
 import React from 'react'
 import '../../../assets/styles/ServiceList/item.service.scss'
 
-export default function ServiceItem(props:any) {
+export default function ServiceItem(props: any) {
     return (
         <li>
             <div className="service-item__icon"><img src={props.data.img} /></div>

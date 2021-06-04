@@ -1,40 +1,40 @@
-export const CONSTANTS={
+export const CONSTANTS = {
     SUBMIT_CONTACT_FORM: "SUBMIT_CONTACT_FORM",
     ONCHANGE_FULLNAME: "ONCHANGE_FULLNAME",
-    ONCHANGE_EMAIL: "ONCHANGE_EMAIL", 
+    ONCHANGE_EMAIL: "ONCHANGE_EMAIL",
     ONCHANGE_MESSAGE: "ONCHANGE_MESSAGE",
     RESET_FORM_DATA: "RESET_FORM_DATA"
 }
 
-export const submitContactForm = (data:any)=>{
-    return{
+export const submitContactForm = (data: any) => {
+    return {
         type: CONSTANTS.SUBMIT_CONTACT_FORM,
-         payload: {...data}
+        payload: { ...data }
     }
 }
 
-export const onChangeFullName = (data: object)=>{
-    return{
+export const onChangeFullName = (data: object) => {
+    return {
         type: CONSTANTS.ONCHANGE_FULLNAME,
-        payload: {...data}
+        payload: { ...data }
     }
 }
 
-export const onChangeEmail = (data: object)=>{
+export const onChangeEmail = (data: object) => {
     return {
         type: CONSTANTS.ONCHANGE_EMAIL,
-        payload: {...data}
+        payload: { ...data }
     }
 }
 
-export const onChangeMessage = (data:object)=>{
+export const onChangeMessage = (data: object) => {
     return {
         type: CONSTANTS.ONCHANGE_MESSAGE,
-        payload: {...data}
+        payload: { ...data }
     }
 }
 
-export const resetForm = ()=>{
+export const resetForm = () => {
     return {
         type: CONSTANTS.RESET_FORM_DATA,
     }

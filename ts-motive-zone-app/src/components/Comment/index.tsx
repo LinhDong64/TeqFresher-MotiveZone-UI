@@ -9,22 +9,22 @@ import instacartLogo from '../../assets/images/logo/instacart.png'
 import paypalLogo from '../../assets/images/logo/paypal.png'
 import googleLogo from '../../assets/images/logo/google.png'
 
-export default function Comment(props:any) {
-    interface Brand{
+export default function Comment(props: any) {
+    interface Brand {
         id: number;
         name: string;
         img: string;
     }
-    const brands: Brand[]=[
-        {id: 0, name:'Booking', img: bookingLogo},
-        {id: 0, name:'Instacart', img:instacartLogo },
-        {id: 0, name:'Paypal', img:paypalLogo },
-        {id: 0, name:'Google', img: googleLogo},
+    const brands: Brand[] = [
+        { id: 0, name: 'Booking', img: bookingLogo },
+        { id: 0, name: 'Instacart', img: instacartLogo },
+        { id: 0, name: 'Paypal', img: paypalLogo },
+        { id: 0, name: 'Google', img: googleLogo },
     ]
 
-    const brandsEle: any = brands.map((brand, index)=>{
-        return(
-            <li key={index}><img src={brand.img} alt={brand.name}/></li>
+    const brandsEle: any = brands.map((brand, index) => {
+        return (
+            <li key={index}><img src={brand.img} alt={brand.name} /></li>
         )
     })
 
@@ -32,7 +32,7 @@ export default function Comment(props:any) {
         <section className="comment-section">
             <div className="comment-section__content">
                 <div className="content__avatar">
-                    <img src={smallSquare}/>
+                    <img src={smallSquare} />
                     <img src={commentAvatar} />
                 </div>
                 <div className="content__comments">
@@ -43,16 +43,18 @@ export default function Comment(props:any) {
                         </div>
                         <div className="comment-content">
                             <p>
-                                “On the other hand, we denounce with righteous indignation and dislike men who are so
-                                beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that
-                                they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to
-                                those who fail in their duty through weakness of will, which is the same as saying.”
+                                “On the other hand, we denounce with righteous indignation
+                                and dislike men who are so beguiled and demoralized by the
+                                charms of pleasure of the moment, so blinded by desire, that
+                                they cannot foresee the pain and trouble that are bound to ensue;
+                                and equal blame belongs to those who fail in their duty through
+                                weakness of will, which is the same as saying.”
                             </p>
                         </div>
                     </div>
                     <div className="arrow-icon-group">
-                        <img src={leftArrowIcon}/>
-                        <img src={rightArrowIcon}/>
+                        <img src={leftArrowIcon} />
+                        <img src={rightArrowIcon} />
                     </div>
                 </div>
             </div>

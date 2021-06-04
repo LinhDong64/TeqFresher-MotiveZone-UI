@@ -17,8 +17,10 @@ export default function Contact(props: any) {
     }
 
     let isDisableButton = true;
-    if ((formData.fullNameWarningMess|| formData.emailWarningMess || formData.messageWarningMess) ||
-        !(formData.dataToSend.fullName && formData.dataToSend.email && formData.dataToSend.message)) {
+    if ((formData.fullNameWarningMess || formData.emailWarningMess
+        || formData.messageWarningMess) ||
+        !(formData.dataToSend.fullName && formData.dataToSend.email
+            && formData.dataToSend.message)) {
         isDisableButton = true;
     } else {
         isDisableButton = false;
@@ -46,21 +48,21 @@ export default function Contact(props: any) {
         setModal(false);
     }
 
-    const inputData =[
+    const inputData = [
         {
-            name:'fullName',
+            name: 'fullName',
             actionType: 'CHECK_FULLNAME',
-            warningMess:formData.fullNameWarningMess
-        }, 
-        {
-            name:'email',
-            actionType: 'CHECK_EMAIL',
-            warningMess:formData.emailWarningMess
+            warningMess: formData.fullNameWarningMess
         },
         {
-            name:'message',
+            name: 'email',
+            actionType: 'CHECK_EMAIL',
+            warningMess: formData.emailWarningMess
+        },
+        {
+            name: 'message',
             actionType: 'CHECK_MESSAGE',
-            warningMess:formData.messageWarningMess
+            warningMess: formData.messageWarningMess
         },
     ]
 
@@ -72,33 +74,41 @@ export default function Contact(props: any) {
             <div className="contact-section__title">
                 <h3 className="global__title">Interested To Work With Us?</h3>
                 <div>
-                    <p className="global__paragraph">Because it is pleasure, but because those who do not know how to pursue
-                    pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone
-                    who loves or pursues or desires to obtain pain
+                    <p className="global__paragraph">Because it is
+                    pleasure, but because those who do not know how
+                    to pursue pleasure rationally encounter consequences
+                    that are extremely painful. Nor again is there anyonewho
+                    loves or pursues or desires to obtain pain
                     </p>
-                    <p className="global__paragraph">Of itself, because it is pain, but because occasionally circumstances
-                    occur in which toil and pain can procure him some great pleasure</p>
+                    <p className="global__paragraph">Of itself, because it is
+                    pain, but because occasionally circumstances occur in which
+                    toil and pain can procure him some great pleasure</p>
                 </div>
                 <form>
                     <div className="form__input-group">
                         {
-                            inputData.map((item, index)=>{
-                                return(
+                            inputData.map((item, index) => {
+                                return (
                                     <ContactInput key={index}
                                         name={item.name}
                                         actionType={item.actionType}
-                                        warningMess={item.warningMess}/>
+                                        warningMess={item.warningMess} />
                                 )
                             })
                         }
                     </div>
                     <span onClick={handleOpenModal}>Privacy Policy</span>
                     <div className="form__button">
-                        <button type="submit" className={isDisableButton ? "disable-button" : "global__button"} onClick={handleSend_Click} disabled={isDisableButton}>Send</button>
+                        <button type="submit"
+                            className={isDisableButton ? "disable-button"
+                                : "global__button"}
+                            onClick={handleSend_Click} disabled={isDisableButton}
+                        >Send
+                        </button>
                     </div>
                 </form>
             </div>
-            <ContactModal openModal={openModal} closeModal={handleCloseModal}/>
+            <ContactModal openModal={openModal} closeModal={handleCloseModal} />
         </section>
     )
 }

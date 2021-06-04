@@ -7,15 +7,16 @@ export default function ContactInput(props: any) {
     const formData = { ...state.form };
 
     function handleOnchange(e: any, actionType: string) {
-        dispatch({ type: actionType, payload: { data:  e.target.value } });
+        dispatch({ type: actionType, payload: { data: e.target.value } });
     }
-    
+
     return (
         <div>
             <input type='text' value={formData.dataToSend[props.name]}
-             onChange={(e)=>handleOnchange(e, props.actionType)} 
-             className={props.warningMess ? "warning" : ''}/>
-            {props.warningMess && <span className="span--warning">{props.warningMess}</span>}
+                onChange={(e) => handleOnchange(e, props.actionType)}
+                className={props.warningMess ? "warning" : ''} />
+            {props.warningMess && <span className="span--warning">
+                {props.warningMess}</span>}
         </div>
     )
 }

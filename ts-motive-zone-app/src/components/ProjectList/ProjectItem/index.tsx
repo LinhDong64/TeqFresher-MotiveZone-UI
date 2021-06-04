@@ -1,11 +1,11 @@
 import React from 'react'
 import '../../../assets/styles/ProjectList/item.project.scss'
 
-export default function ProjectItem(props:any) {
+export default function ProjectItem(props: any) {
 
     return (
         <li>
-            <div><img src={props.data.img}/></div>
+            <div><img src={props.data.img} /></div>
             <div className="project__description">
                 <span className="border-text-1">{props.data.projectTitle}</span>
                 <p className="global__paragraph">{props.data.projectInfo}</p>

@@ -36,7 +36,7 @@ const formReducer = (state = initialState, action: any) => {
                 emailWarningMess: action.payload.warningMessage || ''
             };
             newState.dataToSend.email = action.payload.data || '';
-        
+
             return newState;
         }
 

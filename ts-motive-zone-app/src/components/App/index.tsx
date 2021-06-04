@@ -6,18 +6,18 @@ import ProjectList from '../ProjectList'
 import Comment from '../Comment'
 import Footer from '../Footer'
 
-const App: React.FC=()=> {
+const App: React.FC = () => {
   return (
     <div>
       <main>
         <Home />
-        <ServiceList/>
-        <Supporting/>
-        <Contact/>
-        <ProjectList/>
-        <Comment/>
+        <ServiceList />
+        <Supporting />
+        <Contact />
+        <ProjectList />
+        <Comment />
       </main>
-      <Footer/>
+      <Footer />
     </div>
   );
 }
