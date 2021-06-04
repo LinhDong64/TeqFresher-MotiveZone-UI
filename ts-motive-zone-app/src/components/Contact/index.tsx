@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import '../../assets/styles/Contact/style.scss'
 import contactBanner from '../../assets/images/banners/working-banner.png'
 import { useDispatch, useSelector } from 'react-redux'
+import ContactInput from '../ContactInput'
 import Swal from 'sweetalert2'
 
 export default function Contact(props: any) {
@@ -9,27 +10,18 @@ export default function Contact(props: any) {
     const dispatch = useDispatch();
     const formData = { ...state.form };
 
-    function handleOnchange(e: any, actionType: string) {
-        let value = e.target.value;
-        dispatch({ type: actionType, payload: { data: value } });
-    }
-
     function handleSend_Click(e: React.MouseEvent<HTMLButtonElement>) {
         e.preventDefault();
         dispatch({ type: 'SEND_FORM', payload: formData.dataToSend })
     }
 
     let isDisableButton = true;
-    if ((formData.isShowWarningFullName || formData.isShowWarningEmail || formData.isShowWarningMessage) ||
+    if ((formData.fullNameWarningMess|| formData.emailWarningMess || formData.messageWarningMess) ||
         !(formData.dataToSend.fullName && formData.dataToSend.email && formData.dataToSend.message)) {
         isDisableButton = true;
     } else {
         isDisableButton = false;
     }
-
-    let fullNameWarningMess = formData.isShowWarningFullName && <span className="span--warning">{formData.fullNameWarningMess}</span>;
-    let emailWarningMess = formData.isShowWarningEmail && <span className="span--warning">{formData.emailWarningMess}</span>;
-    let messageWarningMess = formData.isShowWarningMessage && <span className="span--warning">{formData.messageWarningMess}</span>;
 
     useEffect(() => {
         if (formData.dataReceived.status === 200) {
@@ -53,6 +45,24 @@ export default function Contact(props: any) {
         setModal(false);
     }
 
+    const inputData =[
+        {
+            name:'fullName',
+            actionType: 'CHECK_FULLNAME',
+            warningMess:formData.fullNameWarningMess
+        }, 
+        {
+            name:'email',
+            actionType: 'CHECK_EMAIL',
+            warningMess:formData.emailWarningMess
+        },
+        {
+            name:'message',
+            actionType: 'CHECK_MESSAGE',
+            warningMess:formData.messageWarningMess
+        },
+    ]
+
     return (
         <section className="contact-section">
             <div className="contact-section__banner">
@@ -70,21 +80,16 @@ export default function Contact(props: any) {
                 </div>
                 <form>
                     <div className="form__input-group">
-                        <div>
-                            <input className={formData.isShowWarningFullName ? "warning" : ''} type="text" value={formData.dataToSend.fullName}
-                                onChange={(e) => handleOnchange(e, 'CHECK_FULLNAME')} placeholder="Full name" name='fullName' />
-                            {fullNameWarningMess}
-                        </div>
-                        <div>
-                            <input className={formData.isShowWarningEmail ? "warning" : ''} type="text" value={formData.dataToSend.email}
-                                onChange={(e) => handleOnchange(e, 'CHECK_EMAIL')} placeholder="Enter your email address" name='email' />
-                            {emailWarningMess}
-                        </div>
-                        <div>
-                            <input className={formData.isShowWarningMessage ? "warning" : ''} type="text" value={formData.dataToSend.message}
-                                onChange={(e) => handleOnchange(e, 'CHECK_MESSAGE')} placeholder="Message" name='message' />
-                            {messageWarningMess}
-                        </div>
+                        {
+                            inputData.map((item, index)=>{
+                                return(
+                                    <ContactInput key={index}
+                                        name={item.name}
+                                        actionType={item.actionType}
+                                        warningMess={item.warningMess}/>
+                                )
+                            })
+                        }
                     </div>
                     <span onClick={handleOpenModal}>Privacy Policy</span>
                     <div className="form__button">
