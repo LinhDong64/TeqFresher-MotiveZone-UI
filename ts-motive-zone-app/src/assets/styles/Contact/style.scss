@@ -83,7 +83,6 @@
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
     .modal-content{
-        margin: 20px;
         padding: 10px 20px;
         background-color:  #fefefe;
         margin: auto 10px;
@@ -132,6 +131,13 @@
     .contact-section__title{
         padding: 15px;
     }
+
+    .contact-section__modal{
+        .modal-content{
+            position:static;
+            transform: none;
+        }
+    }
 }
 
 @media only screen and (min-width: 1400px){
@@ -170,6 +176,15 @@
             .form__button{
                 justify-content: center;
                 margin-top: 10px;
+            }
+        }
+    }
+
+    .contact-section__modal{
+        .modal-content{
+            @media only screen and (max-height: 700px) {
+                height: 100%;
+                overflow: auto;
             }
         }
     }

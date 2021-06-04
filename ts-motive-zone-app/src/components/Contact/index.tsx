@@ -92,7 +92,7 @@ export default function Contact(props: any) {
                     </div>
                 </form>
             </div>
-            <div className="contact-section__modal" style={{ display: openModal ? "block" : "none" }}>
+            <div className="contact-section__modal" style={{ display: openModal ? "flex" : "none" }}>
                 <div className="modal-content">
                     <span className="close" onClick={handleCloseModal}>&times;</span>
                     <h4>Privacy Policy</h4>
