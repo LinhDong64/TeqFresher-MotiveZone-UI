@@ -1,12 +1,14 @@
-import { takeLatest } from 'redux-saga/effects';
+import { all, takeLatest } from 'redux-saga/effects';
 import* as contactSaga from '../Contact/contactSaga'
 
 function* rootSaga(){
     yield takeLatest('CHECK_FULLNAME', contactSaga.checkFullName);
     yield takeLatest('CHECK_EMAIL', contactSaga.checkEmail);
     yield takeLatest('CHECK_MESSAGE', contactSaga.checkMessage);
-    yield takeLatest('SEND_FORM', contactSaga.sendForm);
-    yield takeLatest('RESET_FORM', contactSaga.resetForm);
+    yield all([
+        takeLatest('SEND_FORM', contactSaga.sendForm),
+        takeLatest('RESET_FORM', contactSaga.resetForm)
+    ])
 }
 
 export default rootSaga;
