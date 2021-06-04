@@ -1,5 +1,5 @@
 import { all, takeLatest } from 'redux-saga/effects';
-import * as contactSaga from '../Contact/contactSaga'
+import * as contactSaga from '../Home/Contact/contactSaga'
 
 function* rootSaga() {
     yield takeLatest('CHECK_FULLNAME', contactSaga.checkFullName);

@@ -1,4 +1,3 @@
-import React from 'react'
 import '../../assets/styles/Comment/style.scss'
 import commentAvatar from '../../assets/images/others/avatar.png'
 import smallSquare from '../../assets/images/others/small-square.png'

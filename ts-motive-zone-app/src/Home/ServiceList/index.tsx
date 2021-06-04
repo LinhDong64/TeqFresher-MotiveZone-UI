@@ -1,4 +1,3 @@
-import React from 'react'
 import ServiceItem from './ServiceItem'
 import serviceIcon1 from '../../assets/images/icons/service-icon-1.png'
 import serviceIcon2 from '../../assets/images/icons/service-icon-2.png'

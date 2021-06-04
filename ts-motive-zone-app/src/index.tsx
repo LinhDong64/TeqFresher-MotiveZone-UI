@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './assets/styles/index.scss';
-import App from './components/App';
+import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux'
-import store from './components/App/appStore'
-import rootSaga from './components/App/appSaga'
+import store from './App/appStore'
+import rootSaga from './App/appSaga'
 
 
 store.runSaga(rootSaga);

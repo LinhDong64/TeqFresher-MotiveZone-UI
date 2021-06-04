@@ -1,5 +1,4 @@
-import React from 'react'
-import '../../../assets/styles/Home/content.home.scss'
+import '../../../assets/styles/Overview/content.overview.scss'
 import lineIcon from '../../../assets/images/icons/line-icon.png'
 import homeBanner from '../../../assets/images/banners/home-banner.png'
 

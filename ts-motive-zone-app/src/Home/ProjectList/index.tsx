@@ -1,4 +1,3 @@
-import React from 'react'
 import '../../assets/styles/ProjectList/style.scss'
 import lastestProject1 from '../../assets/images/projects/lastest-project-p1.png'
 import lastestProject2 from '../../assets/images/projects/lastest-project-p2.png'

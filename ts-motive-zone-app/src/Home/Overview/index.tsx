@@ -1,7 +1,6 @@
-import React from 'react'
-import '../../assets/styles/Home/style.scss'
-import NavBar from './NavBar'
-import HomeContent from './HomeContent'
+import '../../assets/styles/Overview/style.scss'
+import NavBar from '../../components/NavBar'
+import HomeContent from './OverviewContent'
 
 export default function Home(props: any) {
 

@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react'
 import '../../assets/styles/Contact/style.scss'
 import contactBanner from '../../assets/images/banners/working-banner.png'
 import { useDispatch, useSelector } from 'react-redux'
-import ContactInput from '../ContactInput'
-import ContactModal from '../ContactModal'
+import ContactInput from './ContactInput/ContactInput'
+import ContactModal from './ContactModal/ContactModal'
 import Swal from 'sweetalert2'
 
 export default function Contact(props: any) {

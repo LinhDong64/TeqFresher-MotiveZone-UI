@@ -1,6 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux'
 
-
 export default function ContactInput(props: any) {
     const state: any = useSelector(state => state);
     const dispatch = useDispatch();

@@ -1,7 +1,6 @@
-import React from 'react'
-import '../../../assets/styles/Home/nav.home.scss'
-import motiveLogo from '../../../assets/images/logo/motive-zone-logo.png'
-import slashIcon from '../../../assets/images/icons/slash-icon.png'
+import '../../assets/styles/Overview/nav.overview.scss'
+import motiveLogo from '../../assets/images/logo/motive-zone-logo.png'
+import slashIcon from '../../assets/images/icons/slash-icon.png'
 
 export default function NavBar(props: any) {
 
