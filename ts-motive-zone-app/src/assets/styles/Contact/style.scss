@@ -140,10 +140,17 @@
     }
 }
 
+@media only screen and(max-width: 1400px){
+    .contact-section__title, .contact-section__banner{
+        padding: 15px;
+    }
+}
+
 @media only screen and (min-width: 1400px){
     .contact-section{
           padding-right: 390px;
     }
+
 }
 
 @media only screen and (max-width: 940px){
