@@ -42,10 +42,12 @@ export default function Contact(props: any) {
     const [openModal, setModal] = useState(false);
     function handleOpenModal() {
         setModal(true);
+        document.getElementById('body')?.classList.add("fixed-body");
     }
 
     function handleCloseModal() {
         setModal(false);
+        document.getElementById('body')?.classList.remove("fixed-body");
     }
 
     const inputData = [

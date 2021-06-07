@@ -22,6 +22,6 @@ export const validateEmail = (email: string) => {
 export const validateMessage = (message: string) => {
     let ret = {};
     ret = message ? { warningMessage: '', data: message }
-        : { warningMessage: 'Please enter a valid full name!' }
+        : { warningMessage: 'Please enter a message!' }
     return ret;
 }
