@@ -125,28 +125,17 @@
 
 @media only screen and (max-width: 1200px){
     .contact-section__banner{
-        padding: 15px;
+        // padding: 15px;
         img{
             width: 100%;
             height: auto;
         }
     }
-
-    .contact-section__title{
-        padding: 15px;
-    }
-
     .contact-section__modal{
         .modal-content{
             position:static;
             transform: none;
         }
-    }
-}
-
-@media only screen and(max-width: 1400px){
-    .contact-section__title, .contact-section__banner{
-        padding: 15px;
     }
 }
 

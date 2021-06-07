@@ -11,7 +11,7 @@ export default function FooterForm(props: any) {
                     <input className="fullname" type="text" name="txtFullname"
                         id="txtFullname" placeholder="Full name" />
                     <input className="email" type="text" name="txtEmail"
-                        id="txtEmail" placeholder="Enter your email address" />
+                        id="txtEmail" placeholder="Enter your email" />
                 </div>
                 <div className="footer-form__items-group">
                     <input className="message" type="text" name="txtMessage"

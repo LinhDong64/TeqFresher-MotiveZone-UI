@@ -22,9 +22,13 @@
         max-width: 190px;
         width: 100%;
     }
+    .fullname{
+        margin-right: 10px;
+    }
     .message{
         max-width: 290px;
         width: 100%;
+        margin-right: 10px;
     }
     input{
         border: none;
@@ -43,13 +47,9 @@
             width: 90px;
             font-size: 15px;
             font-weight: bold;
-        }
-    }
-}
-@media only screen and (max-width: 465px){
-    .footer-form__items-group {
-        .fullname, .message{
-            margin-right: 10px;
+            &:hover{
+                cursor: pointer;
+            }
         }
     }
 }

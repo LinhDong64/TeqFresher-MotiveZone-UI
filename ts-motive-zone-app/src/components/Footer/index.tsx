@@ -111,7 +111,7 @@ export default function Footer(props: any) {
     })
 
     return (
-        <footer>
+          <footer>
             <div className="footer__main-content">
                 <div className="footer__form-and-header--container">
                     <div className="footer-header">
