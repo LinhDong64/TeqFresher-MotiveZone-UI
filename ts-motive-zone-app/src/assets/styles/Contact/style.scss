@@ -6,6 +6,7 @@
 }
 
 .contact-section__banner{
+  margin-right: 20px;
     img{
         max-width: 100%;
         width: 630px;
@@ -125,7 +126,6 @@
 
 @media only screen and (max-width: 1200px){
     .contact-section__banner{
-        // padding: 15px;
         img{
             width: 100%;
             height: auto;

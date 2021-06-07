@@ -66,17 +66,19 @@ footer{
     }
 }
 .horizone-line{
-    height: 1px;
-    width: 100%;
-    background-color: #707070;
+  height: 1px;
+  width: 100%;
+  background-color: #707070;
+  max-width: 1140px;
+  margin:auto;
 }
 /* -------------------- Bottom footer-------------------------------------------- */
 .footer__bottom{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 30px;
-    max-width: 100%;
+    max-width: 1140px;
+    margin:30px auto 0;
     ul{
         list-style-type: none;
         padding: 0;
@@ -124,11 +126,7 @@ footer{
 .highlight{
     color: #FF9C00;
 }
-@media only screen and (min-width: 1400px){
-    footer{
-        padding:80px 390px 40px 390px;
-    }
-}
+
 @media only screen and (max-width: 940px){
     footer{
         .footer__main-content{

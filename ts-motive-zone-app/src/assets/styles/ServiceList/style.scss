@@ -49,6 +49,12 @@
     }
 }
 
+@media only screen and (max-width: 1400px){
+  .service-site{
+    padding: 100px 30px;
+  }
+}
+
 @media only screen and (max-width: 940px){
     .service-site{
         flex-direction: column;
