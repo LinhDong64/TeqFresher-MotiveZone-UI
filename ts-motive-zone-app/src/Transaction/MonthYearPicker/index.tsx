@@ -11,14 +11,17 @@ export default function (props: any) {
 
   function previousClick() {
     setYear(selectedYear - 1);
+    setMonth(1);
   }
 
   function nextClick() {
+    setMonth(1);
     currentYear > selectedYear && setYear(selectedYear + 1);
   }
 
   function selectMonthClick(month: number) {
-    if (month <= currentMonth) {
+    if (selectedYear < currentYear || (selectedYear === currentYear 
+      && month <= currentMonth)) {
       setMonth(month);
     }
   }
@@ -38,10 +41,11 @@ export default function (props: any) {
   const months = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
   const monthsEle = months.map((item, index) => {
-    return <li className={`${item <= currentMonth &&
+    return <li className={`${(selectedYear !== currentYear || 
+      (selectedYear === currentYear && item <= currentMonth)) &&
       item !== selectedMonth ? 'normal-month' : ''} 
             ${item === selectedMonth ? 'active-month' : ''}
-            ${item > currentMonth ? 'disable-month' : ''}`}
+            ${item > currentMonth && selectedYear >= currentYear? 'disable-month' : ''}`}
       key={index} onClick={() => selectMonthClick(item)}>{item}月</li>
   })
 
@@ -60,7 +64,7 @@ export default function (props: any) {
                 className="year-adjustment">❮ 前年</li>
               <li><b>{selectedYear} 年</b></li>
               <li onClick={nextClick}
-                className="year-adjustment">来年 ❯</li>
+                className={`${selectedYear === currentYear? 'disable-next-year': 'year-adjustment'}`}>来年 ❯</li>
             </ul>
           </div>
           <hr></hr>
