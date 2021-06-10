@@ -2,7 +2,7 @@ import '../../../assets/styles/Overview/content.overview.scss'
 import lineIcon from '../../../assets/images/icons/line-icon.png'
 import homeBanner from '../../../assets/images/banners/home-banner.png'
 
-export default function HomeContent(props: any) {
+export default function OverviewContent(props: any) {
 
 
     return (

@@ -1,24 +1,27 @@
-import Home from '../Home/Overview'
-import ServiceList from '../Home/ServiceList'
-import Supporting from '../Home/Supporting'
-import Contact from '../Home/Contact'
-import ProjectList from '../Home/ProjectList'
-import Comment from '../Home/Comment'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from 'react-router-dom'
+import Home from '../Home'
 import Footer from '../components/Footer'
+import Transaction from '../Transaction'
+
 
 const App: React.FC = () => {
   return (
-    <div>
-      <main>
-        <Home />
-        <ServiceList />
-        <Supporting />
-        <Contact />
-        <ProjectList />
-        <Comment />
-      </main>
-      <Footer />
-    </div>
+    <Router>
+      <div>
+        <main>
+          <Switch>
+            <Route path='/' exact component={Home} />
+            <Route path='/transaction' component={Transaction} />
+          </Switch>
+        </main>
+        {/* <Footer /> */}
+      </div>
+    </Router>
+
   );
 }
 
