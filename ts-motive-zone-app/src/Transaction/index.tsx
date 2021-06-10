@@ -4,7 +4,7 @@ import MonthYearPicker from './MonthYearPicker'
 
 export default function Transaction() {
   const [isOpenPicker, setOpenPicker] = useState(false);
-  const [monthYear, setMonthYear] = useState({year: 2021, month: 6});
+  const [monthYear, setMonthYear] = useState({ year: 2021, month: 6 });
 
   function handleOpenPicker() {
     setOpenPicker(true);
@@ -16,8 +16,8 @@ export default function Transaction() {
     document.getElementById('body')?.classList.remove("fixed-body");
   }
 
-  function handleGetMonthYear(data:object){
-    const result:any ={...data};
+  function handleGetMonthYear(data: object) {
+    const result: any = { ...data };
     setMonthYear(result);
     handleClosePicker();
   }
@@ -26,7 +26,9 @@ export default function Transaction() {
     <div>
       <button onClick={handleOpenPicker}>Open Picker</button>
       <div>{monthYear.month}-{monthYear.year}</div>
-      <MonthYearPicker isOpen={isOpenPicker} closePicker={handleClosePicker} getMonthYear={handleGetMonthYear}/>
+      <MonthYearPicker isOpen={isOpenPicker}
+        closePicker={handleClosePicker}
+        getMonthYear={handleGetMonthYear} />
     </div>
   )
 }

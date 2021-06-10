@@ -24,14 +24,14 @@ export default function (props: any) {
   }
 
   function selectedClick() {
-    const data={
+    const data = {
       year: selectedYear,
       month: selectedMonth
     }
     props.getMonthYear(data);
   }
 
-  function closePickerClick(){
+  function closePickerClick() {
     props.closePicker();
   }
 
@@ -46,10 +46,12 @@ export default function (props: any) {
   })
 
   return (
-    <div className="modal-container" style={{ display: props.isOpen? 'flex' : 'none'}}>
+    <div className="modal-container"
+      style={{ display: props.isOpen ? 'flex' : 'none' }}>
       <div className="modal-content">
         <div className="modal-content__top">
-          <span className="close" onClick = {closePickerClick}>&times;</span>
+          <span className="close"
+            onClick={closePickerClick}>&times;</span>
         </div>
         <div className="modal-content__picker">
           <div className="year-option">
