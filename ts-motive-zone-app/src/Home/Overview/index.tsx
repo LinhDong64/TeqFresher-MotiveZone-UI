@@ -1,4 +1,3 @@
-import '../../assets/styles/Overview/style.scss'
 import NavBar from '../../components/NavBar'
 import OverviewContent from './OverviewContent'
 

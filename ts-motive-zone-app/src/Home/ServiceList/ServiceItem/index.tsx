@@ -1,5 +1,3 @@
-import '../../../assets/styles/ServiceList/item.service.scss'
-
 export default function ServiceItem(props: any) {
     return (
         <li>

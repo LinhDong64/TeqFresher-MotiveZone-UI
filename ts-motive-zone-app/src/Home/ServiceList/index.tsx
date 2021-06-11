@@ -2,7 +2,6 @@ import ServiceItem from './ServiceItem'
 import serviceIcon1 from '../../assets/images/icons/service-icon-1.png'
 import serviceIcon2 from '../../assets/images/icons/service-icon-2.png'
 import serviceIcon3 from '../../assets/images/icons/service-icon-3.png'
-import '../../assets/styles/ServiceList/style.scss'
 
 export default function ServiceList(props: any) {
     interface ServiceItem {

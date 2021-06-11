@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import Chart from './Chart'
 import MonthYearPicker from './MonthYearPicker'
-import '../assets/styles/_transaction.scss'
 
 export default function Transaction() {
   const [isOpenPicker, setOpenPicker] = useState(false);
