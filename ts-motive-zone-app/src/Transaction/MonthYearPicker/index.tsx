@@ -1,6 +1,5 @@
 
 import { useState } from 'react'
-import '../../assets/styles/Transaction/style.scss'
 
 export default function (props: any) {
   const currentYear = new Date().getFullYear();

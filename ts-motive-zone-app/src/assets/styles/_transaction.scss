@@ -1,18 +1,9 @@
-@import '../modal';
-@mixin  flex-center-horizontal {
-  display: flex;
-  justify-content: center;
-}
-
-@mixin  flex-between-horizontal {
-  display: flex;
-  justify-content: space-between;
-}
+@import 'modal';
+@import 'mixin';
 
 @mixin trans-color-1 {
-  color: gray;
+  color: #808080;
 }
-
 .trans{
   padding: 10px;
   @include flex-center-horizontal();
@@ -30,6 +21,7 @@
   }
 }
 
+// ==========Total Section===============
 .trans__total{
   @include flex-between-horizontal();
   .month-picker{
@@ -76,7 +68,7 @@
     
   }
 }
-// ==========================================================
+// =======================Picker=======================
 @mixin format-ul {
   list-style-type: none;
   @include flex-between-horizontal();
@@ -183,3 +175,5 @@
     }
   }
 }
+
+// ====================Chart=========================
