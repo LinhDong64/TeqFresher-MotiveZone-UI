@@ -6,6 +6,7 @@
 }
 .trans{
   padding: 10px;
+  margin: 100px 0;
   @include flex-center-horizontal();
   .trans-container{
     max-width: 650px;
@@ -24,6 +25,7 @@
 // ==========Total Section===============
 .trans__total{
   @include flex-between-horizontal();
+  margin-bottom: 50px;
   .month-picker{
     @include flex-between-horizontal();
     margin-right: 10px;

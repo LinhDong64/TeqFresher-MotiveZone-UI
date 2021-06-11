@@ -1,11 +1,10 @@
-@import './Comment/style.scss';
-@import './Contact/style.scss';
-@import './Footer/style.scss';
-@import './Overview/style.scss';
-@import './ProjectList/style.scss';
-@import './ServiceList/style.scss';
-@import './Supporting/style.scss';
-// @import url('./_transaction.scss');
+@import 'comment.scss';
+@import 'contact.scss';
+@import 'footer.scss';
+@import 'overview.scss';
+@import 'project.scss';
+@import 'service.scss';
+@import 'supporting.scss';
 @import 'transaction';
 
 body {

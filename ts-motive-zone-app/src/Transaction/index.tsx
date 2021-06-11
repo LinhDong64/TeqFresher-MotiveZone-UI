@@ -1,10 +1,15 @@
 import { useState } from 'react'
 import Chart from './Chart'
 import MonthYearPicker from './MonthYearPicker'
+import {getTransactionData, getDataForTransChart} from '../services/callAPI'
 
 export default function Transaction() {
   const [isOpenPicker, setOpenPicker] = useState(false);
   const [monthYear, setMonthYear] = useState({ year: 2021, month: 6 });
+
+  console.log('transaction data',getTransactionData());
+  console.log('chart data',getDataForTransChart());
+  
 
   function handleOpenPicker() {
     setOpenPicker(true);
