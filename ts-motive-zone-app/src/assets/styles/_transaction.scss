@@ -179,3 +179,21 @@
 }
 
 // ====================Chart=========================
+.recharts-cartesian-axis-tick{
+  text{
+    font-size: 20px;
+    font-weight: 500;
+    fill: #808080;
+  }
+}
+
+.recharts-bar-rectangle{
+  border-radius: 10px;
+  path{
+    border-radius: 10px;
+  }
+}
+
+.label-color{
+  color:#E9561E !important;
+}

@@ -1,24 +1,24 @@
 import { useState } from 'react'
 import Chart from './Chart'
 import MonthYearPicker from './MonthYearPicker'
-import {getTransactionData, getDataForTransChart} from '../services/callAPI'
 
 export default function Transaction() {
   const [isOpenPicker, setOpenPicker] = useState(false);
-  const [monthYear, setMonthYear] = useState({ year: 2021, month: 6 });
-
-  console.log('transaction data',getTransactionData());
-  console.log('chart data',getDataForTransChart());
-  
+  const [monthYear, setMonthYear] = useState({
+    year: new Date().getFullYear(),
+    month: new Date().getMonth() + 1 
+  });
 
   function handleOpenPicker() {
     setOpenPicker(true);
-    document.getElementById('body')?.classList.add("fixed-body");
+    document.getElementById('body')
+      ?.classList.add("fixed-body");
   }
 
   function handleClosePicker() {
     setOpenPicker(false);
-    document.getElementById('body')?.classList.remove("fixed-body");
+    document.getElementById('body')
+      ?.classList.remove("fixed-body");
   }
 
   function handleGetMonthYear(data: object) {
@@ -41,7 +41,7 @@ export default function Transaction() {
             </span>
             <span className="chevron-icon" onClick={handleOpenPicker}>
               <i className='fa fa-chevron-down'
-              style={{ fontSize: '15px', color: 'gray' }}></i>
+                style={{ fontSize: '15px', color: 'gray' }}></i>
             </span>
             <MonthYearPicker isOpen={isOpenPicker}
               closePicker={handleClosePicker}
@@ -65,7 +65,7 @@ export default function Transaction() {
           </div>
         </div>
         <div>
-          <Chart/>
+          <Chart time={monthYear}/>
         </div>
       </div>
     </div>

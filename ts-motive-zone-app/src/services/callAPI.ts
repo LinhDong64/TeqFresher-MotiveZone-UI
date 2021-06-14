@@ -15,16 +15,18 @@ export const getTransactionData = () => {
   return axios({
     method: 'get',
     url: `https://mock.stg.offwork.teqnological.asia/mock/6092029dfdc7510021577547/xxxx/transaction`
-  }).then(res => {
+  }).then(async res => {
     return res.data;
   })
+
 }
 
-export const getDataForTransChart = () => {
-  return axios({
+export async function getDataForChart() {
+ return await axios({
     method: 'get',
     url: `https://mock.stg.offwork.teqnological.asia/mock/6092029dfdc7510021577547/xxxx/chart`
-  }).then(res => {
+  }).then( res => {
+    console.log(res.data.data);
     return res.data;
   })
 }
