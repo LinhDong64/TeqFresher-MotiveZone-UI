@@ -18,7 +18,7 @@ export default function MonthYearPicker(props: any) {
   }
 
   function selectMonthClick(month: number) {
-    if (selectedYear < currentYear || (selectedYear === currentYear 
+    if (selectedYear < currentYear || (selectedYear === currentYear
       && month <= currentMonth)) {
       setMonth(month);
     }
@@ -39,11 +39,12 @@ export default function MonthYearPicker(props: any) {
   const months = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
   const monthsEle = months.map((item, index) => {
-    return <li className={`${(selectedYear !== currentYear || 
+    return <li className={`${(selectedYear !== currentYear ||
       (selectedYear === currentYear && item <= currentMonth)) &&
       item !== selectedMonth ? 'normal-month' : ''} 
             ${item === selectedMonth ? 'active-month' : ''}
-            ${item > currentMonth && selectedYear >= currentYear? 'disable-month' : ''}`}
+            ${item > currentMonth && selectedYear >= currentYear ?
+        'disable-month' : ''}`}
       key={index} onClick={() => selectMonthClick(item)}>{item}月</li>
   })
 
@@ -62,7 +63,8 @@ export default function MonthYearPicker(props: any) {
                 className="year-adjustment">❮ 前年</li>
               <li><b>{selectedYear} 年</b></li>
               <li onClick={nextClick}
-                className={`${selectedYear === currentYear? 'disable-next-year': 'year-adjustment'}`}>来年 ❯</li>
+                className={`${selectedYear === currentYear ?
+                  'disable-next-year' : 'year-adjustment'}`}>来年 ❯</li>
             </ul>
           </div>
           <hr></hr>

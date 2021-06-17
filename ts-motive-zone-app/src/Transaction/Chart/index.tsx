@@ -5,27 +5,43 @@ import {
 } from 'recharts';
 import formatDataChart from '../../utils/function/formatDataChart'
 
-export default function Chart(props: any) {
+export default function Chart(transProps: any) {
+  console.log('time', transProps);
+
   const state: any = useSelector(state => state);
   const chartData = state.transaction.chartData.values;
-  const data = formatDataChart(chartData, props.time.year);
+  const data = formatDataChart(chartData, transProps.time.year);
 
   function renderLabel(): any {
     return (
       <text fill="#808080" className="recharts-text recharts-label">
-        <tspan x="75" y="15" style={{ fontSize: "18px", fontWeight: 500 }}>
-          {props.time.year}</tspan>
+        <tspan x="75" y="15"
+          style={{ fontSize: "18px", fontWeight: 500 }}>
+          {transProps.time.year}</tspan>
       </text>
     )
   }
 
-  // const renderCustomAxisTick = (month: number) => {
-  //   return (
-  //     <text>
-  //       {data.month}
-  //     </text>
-  //   )
-  // }
+  const CustomTick = (props: any) => {
+    console.log('tick', typeof (props.payload.value));
+    if (props.payload.value === transProps.time.month) {
+      return (
+        <g transform={`translate(${props.x},${props.y})`} >
+          <text textAnchor="end" fontSize={12} stroke='#2D69C4'>
+            {props.payload.value}
+          </text>
+        </g>
+      )
+    } else {
+      return (
+        <g transform={`translate(${props.x},${props.y})`} >
+          <text textAnchor="end" fontSize={12}>
+            {props.payload.value}
+          </text>
+        </g>
+      )
+    }
+  }
 
   const colorLine = "#808080";
   return (
@@ -34,7 +50,7 @@ export default function Chart(props: any) {
         <BarChart data={data} margin={{ top: 15, bottom: 5 }}>
           <Tooltip />
           <XAxis dataKey="month" orientation="top" tickLine={false}
-            axisLine={false}>
+            axisLine={false} tick={<CustomTick />}>
             <Label content={renderLabel} ></Label>
           </XAxis>
           <YAxis reversed={true} hide />
