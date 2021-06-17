@@ -1,28 +1,14 @@
-import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import {
   BarChart, Bar, Tooltip, ResponsiveContainer,
   Label, XAxis, ReferenceLine, YAxis
 } from 'recharts';
-import { getDataForChart, getTransactionData } from '../../services/callAPI'
 import formatDataChart from '../../utils/function/formatDataChart'
 
 export default function Chart(props: any) {
-  const [dataForChart, setDataForChart] = useState([]);
-  const [width, setWidth] = useState(0);
-  useEffect(() => {
-    getTransactionData().then(result => {
-      console.log(result);
-    });
-
-    getDataForChart().then(result => { setDataForChart(result.data.values) });
-
-    const ele: any = document.getElementsByClassName('recharts-responsive-container');
-    let width = ele[0].offsetWidth;
-    console.log(width);
-    setWidth(width)
-  }, [])
-
-  const data = formatDataChart(dataForChart, props.time.year);
+  const state: any = useSelector(state => state);
+  const chartData = state.transaction.chartData.values;
+  const data = formatDataChart(chartData, props.time.year);
 
   function renderLabel(): any {
     return (
@@ -33,47 +19,47 @@ export default function Chart(props: any) {
     )
   }
 
-  const renderCustomAxisTick = (month:number) => {
-    return (
-      <text>
-        {data.month}
-      </text>
-    )
-  }
-
+  // const renderCustomAxisTick = (month: number) => {
+  //   return (
+  //     <text>
+  //       {data.month}
+  //     </text>
+  //   )
+  // }
 
   const colorLine = "#808080";
-
   return (
-    <ResponsiveContainer width="100%" height={250}>
-      <BarChart data={data} margin={{ top: 15, bottom: 5 }}>
-        <Tooltip />
-        <XAxis dataKey="month" orientation="top" tickLine={false}
-          axisLine={false}>
-          <Label content={renderLabel} ></Label>
-        </XAxis>
-       <YAxis reversed={true} hide/>
-        <Bar dataKey="value" fill="#BFD2ED" radius={10} />
-        {data.map((item: any) => (
-          <ReferenceLine
-            ifOverflow="visible"
-            key={item.time}
-            x={item.month}
-            stroke={colorLine}
-            position="start"
-            className='custome-reference-line'
-          />
-        ))}
-        {data.length > 0 && (
-          <ReferenceLine
-            ifOverflow="visible"
-            x={data[data.length - 1].month}
-            stroke={colorLine}
-            position="end"
-            className='custome-reference-line'
-          />
-        )}
-      </BarChart>
-    </ResponsiveContainer>
+    <div>
+      <ResponsiveContainer width="100%" height={250}>
+        <BarChart data={data} margin={{ top: 15, bottom: 5 }}>
+          <Tooltip />
+          <XAxis dataKey="month" orientation="top" tickLine={false}
+            axisLine={false}>
+            <Label content={renderLabel} ></Label>
+          </XAxis>
+          <YAxis reversed={true} hide />
+          <Bar dataKey="value" fill="#BFD2ED" radius={10} />
+          {data.map((item: any) => (
+            <ReferenceLine
+              ifOverflow="visible"
+              key={item.time}
+              x={item.month}
+              stroke={colorLine}
+              position="start"
+              className='custome-reference-line'
+            />
+          ))}
+          {data.length > 0 && (
+            <ReferenceLine
+              ifOverflow="visible"
+              x={data[data.length - 1].month}
+              stroke={colorLine}
+              position="end"
+              className='custome-reference-line'
+            />
+          )}
+        </BarChart>
+      </ResponsiveContainer>
+    </div>
   )
 }

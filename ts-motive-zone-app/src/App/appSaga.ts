@@ -1,5 +1,6 @@
 import { all, takeLatest } from 'redux-saga/effects';
 import * as contactSaga from '../Home/Contact/contactSaga'
+import * as transactionSaga from '../Transaction/transactionSaga'
 
 function* rootSaga() {
     yield takeLatest('CHECK_FULLNAME', contactSaga.checkFullName);
@@ -8,7 +9,12 @@ function* rootSaga() {
     yield all([
         takeLatest('SEND_FORM', contactSaga.sendForm),
         takeLatest('RESET_FORM', contactSaga.resetForm)
-    ])
+    ]);
+
+    yield all([
+      takeLatest('TRANSACTION_DATA', transactionSaga.transactionData),
+      takeLatest('CHART_DATA', transactionSaga.chartData)
+    ]);
 }
 
 export default rootSaga;

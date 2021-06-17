@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from 'react-redux'
 import ContactInput from './ContactInput/ContactInput'
 import ContactModal from './ContactModal/ContactModal'
 import Modal from 'react-modal';
-import { NONAME } from 'dns'
 
 export default function Contact(props: any) {
   const state: any = useSelector(state => state);
@@ -137,7 +136,6 @@ export default function Contact(props: any) {
       </div>
       <ContactModal openModal={openPolicyModal} closeModal={handleClosePolicyModal} />
       <div>
-        <button onClick={openModal}>Open Modal</button>
         <Modal
           isOpen={modalIsOpen}
           onAfterOpen={afterOpenModal}

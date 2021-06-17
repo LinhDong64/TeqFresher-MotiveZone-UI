@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { useSelector, useDispatch } from 'react-redux';
 import Chart from './Chart'
 import MonthYearPicker from './MonthYearPicker'
 
@@ -26,6 +27,15 @@ export default function Transaction() {
     setMonthYear(result);
     handleClosePicker();
   }
+  const dispatch = useDispatch();
+  const state: any = useSelector(state=>state);
+  useEffect(() => {
+    async function getData(){
+      await dispatch({ type: 'TRANSACTION_DATA', payload: {} });
+      await dispatch({ type: 'CHART_DATA', payload: {} });
+    }
+    getData();
+  }, []);
 
   return (
     <div className="trans">
@@ -64,9 +74,9 @@ export default function Transaction() {
             </div>
           </div>
         </div>
-        <div>
+        {!state.transaction.isLoading && <div>
           <Chart time={monthYear}/>
-        </div>
+        </div>}
       </div>
     </div>
   )

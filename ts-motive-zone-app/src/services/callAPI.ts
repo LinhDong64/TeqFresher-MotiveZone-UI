@@ -15,7 +15,7 @@ export const getTransactionData = () => {
     method: 'get',
     url: `https://mock.stg.offwork.teqnological.asia/mock/6092029dfdc7510021577547/xxxx/transaction`
   }).then(async res => {
-    return res.data;
+    return res.data.data;
   })
 
 }
@@ -25,7 +25,6 @@ export async function getDataForChart() {
     method: 'get',
     url: `https://mock.stg.offwork.teqnological.asia/mock/6092029dfdc7510021577547/xxxx/chart`
   }).then( res => {
-    console.log(res.data.data);
-    return res.data;
+    return res.data.data;
   })
 }

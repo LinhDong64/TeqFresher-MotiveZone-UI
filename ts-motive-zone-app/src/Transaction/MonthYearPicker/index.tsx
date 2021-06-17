@@ -1,7 +1,6 @@
-
 import { useState } from 'react'
 
-export default function (props: any) {
+export default function MonthYearPicker(props: any) {
   const currentYear = new Date().getFullYear();
   const currentMonth = new Date().getMonth() + 1;
 
