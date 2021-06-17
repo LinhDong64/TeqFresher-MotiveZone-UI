@@ -1,4 +1,3 @@
-import '../../assets/styles/Overview/nav.overview.scss'
 import motiveLogo from '../../assets/images/logo/motive-zone-logo.png'
 import slashIcon from '../../assets/images/icons/slash-icon.png'
 import { Link } from 'react-router-dom';

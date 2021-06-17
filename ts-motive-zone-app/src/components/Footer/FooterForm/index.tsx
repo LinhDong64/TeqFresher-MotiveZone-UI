@@ -1,7 +1,5 @@
-import '../../../assets/styles/Footer/form.footer.scss'
 
 export default function FooterForm(props: any) {
-
 
     return (
         <div className="footer-form-group">

@@ -1,4 +1,3 @@
-import '../../assets/styles/Comment/style.scss'
 import commentAvatar from '../../assets/images/others/avatar.png'
 import smallSquare from '../../assets/images/others/small-square.png'
 import rightArrowIcon from '../../assets/images/icons/right-arrow-icon.png'

@@ -1,61 +1,65 @@
+import { useSelector } from 'react-redux';
+import {
+  BarChart, Bar, Tooltip, ResponsiveContainer,
+  Label, XAxis, ReferenceLine, YAxis
+} from 'recharts';
+import formatDataChart from '../../utils/function/formatDataChart'
 
-import { BarChart, Bar, Cell, XAxis, YAxis, CartesianAxis, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+export default function Chart(props: any) {
+  const state: any = useSelector(state => state);
+  const chartData = state.transaction.chartData.values;
+  const data = formatDataChart(chartData, props.time.year);
 
+  function renderLabel(): any {
+    return (
+      <text fill="#808080" className="recharts-text recharts-label">
+        <tspan x="75" y="15" style={{ fontSize: "18px", fontWeight: 500 }}>
+          {props.time.year}</tspan>
+      </text>
+    )
+  }
 
-export default function Chart() {
-  const data = [
-    {
-      name: '1',
-      uv: 4000,
-      pv: 2400,
-      amt: 2400,
-    },
-    {
-      name: '2',
-      uv: 3000,
-      pv: 1398,
-      amt: 2210,
-    },
-    {
-      name: '3',
-      uv: 2000,
-      pv: 9800,
-      amt: 2290,
-    },
-    {
-      name: '4',
-      uv: 2780,
-      pv: 3908,
-      amt: 2000,
-    },
-    {
-      name: '5',
-      uv: 1890,
-      pv: 4800,
-      amt: 2181,
-    },
-    {
-      name: '6',
-      uv: 2390,
-      pv: 3800,
-      amt: 2500,
-    },
-    {
-      name: '12',
-      uv: 3490,
-      pv: 4300,
-      amt: 2100,
-    },
-  ];
+  // const renderCustomAxisTick = (month: number) => {
+  //   return (
+  //     <text>
+  //       {data.month}
+  //     </text>
+  //   )
+  // }
+
+  const colorLine = "#808080";
   return (
-    <BarChart width={730} height={250} data={data}>
-      <CartesianAxis strokeDasharray=""/>
-      <XAxis dataKey="name" orientation='top' />
-      <YAxis />
-      <Tooltip />
-      <Legend />
-      <Bar dataKey="pv" fill="#8884d8">
-      </Bar> 
-    </BarChart>
+    <div>
+      <ResponsiveContainer width="100%" height={250}>
+        <BarChart data={data} margin={{ top: 15, bottom: 5 }}>
+          <Tooltip />
+          <XAxis dataKey="month" orientation="top" tickLine={false}
+            axisLine={false}>
+            <Label content={renderLabel} ></Label>
+          </XAxis>
+          <YAxis reversed={true} hide />
+          <Bar dataKey="value" fill="#BFD2ED" radius={10} />
+          {data.map((item: any) => (
+            <ReferenceLine
+              ifOverflow="visible"
+              key={item.time}
+              x={item.month}
+              stroke={colorLine}
+              position="start"
+              className='custome-reference-line'
+            />
+          ))}
+          {data.length > 0 && (
+            <ReferenceLine
+              ifOverflow="visible"
+              x={data[data.length - 1].month}
+              stroke={colorLine}
+              position="end"
+              className='custome-reference-line'
+            />
+          )}
+        </BarChart>
+      </ResponsiveContainer>
+    </div>
   )
 }

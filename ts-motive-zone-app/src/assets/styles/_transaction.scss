@@ -1,0 +1,199 @@
+@import 'modal';
+@import 'mixin';
+
+@mixin trans-color-1 {
+  color: #808080;
+}
+.trans{
+  padding: 10px;
+  margin: 100px 0;
+  @include flex-center-horizontal();
+  .trans-container{
+    max-width: 650px;
+    width: 100%;
+  }
+}
+
+.trans__header{
+  @include flex-between-horizontal();
+  margin-bottom: 50px;
+  span{
+    @include trans-color-1();
+  }
+}
+
+// ==========Total Section===============
+.trans__total{
+  @include flex-between-horizontal();
+  margin-bottom: 50px;
+  .month-picker{
+    @include flex-between-horizontal();
+    margin-right: 10px;
+    .month{
+      word-break: keep-all;
+      font-size:xx-large;
+      font-weight: bold;
+      margin-right: 10px;
+      @include trans-color-1();
+      &>span{
+        font-size: x-large;
+        font-weight: normal;
+      }
+    }
+
+    .chevron-icon{
+      padding-top: 10px;
+      margin: 0 10px;
+      i:hover{
+        cursor: pointer;
+        color: black !important;
+      }
+    }
+  }
+  .total__statistic{
+    width: 100%;
+    .expense-group, .income-group{
+      hr{
+        border: 1px solid #E5E5E5;
+      }
+    }
+    .expense, .income{
+      @include flex-between-horizontal();
+      span{
+        @include trans-color-1();
+      }
+    }
+
+    .expense-group{
+      margin-bottom: 25px;
+    }
+    
+  }
+}
+// =======================Picker=======================
+@mixin format-ul {
+  list-style-type: none;
+  @include flex-between-horizontal();
+  padding: 0;
+  margin: 0;
+  flex-wrap: wrap;
+}
+
+@mixin sharp-container {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+}
+
+.modal-container{
+  @include modal-theme;
+  .modal-content{
+    max-width: 500px !important;
+    @include modal-content;
+    background-color:  #fefefe;
+  }
+}
+
+.modal-content__top{
+  width: 100%;
+  display: inline-block;
+  background-color: gainsboro;
+  .close{
+    padding: 0px 20px;
+    font-size: 40px;
+    font-weight: 200;
+    @include close-modal-icon;
+  }
+}
+
+.modal-content__picker{
+  .year-option{
+    padding: 10px;
+    ul{
+     @include format-ul();
+    }
+    .year-adjustment:hover{
+      cursor: pointer;
+      color: #6DB8F1;
+    }
+  }
+
+  .disable-next-year{
+    color: #E7E7E7;
+    &:hover{
+      color: #E7E7E7;
+    }
+  }
+
+  .month-option{
+    padding: 10px;
+    ul{
+      @include format-ul();
+      &>li{
+        margin: 10px;
+        justify-content: center;
+        display: flex;
+        align-items: center;
+        &:hover{
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+.active-month{
+  @include sharp-container();
+  background-color: #E9561E;
+  color: #FFFFFF;
+}
+
+.disable-month{
+  @include sharp-container();
+  background-color: #E5E5E5;
+}
+
+.normal-month{
+  @include sharp-container();
+  background-color: #FFFFFF;
+  &:hover{
+    border: 3px solid #E9561E;
+  }
+}
+
+.button-group{
+  @include flex-center-horizontal();
+  padding: 20px;
+  button{
+    background-color: #E9561E;
+    color: #FFFFFF;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    padding: 15px 90px;
+    word-break: keep-all;
+    &:hover{
+      cursor:pointer;
+    }
+  }
+}
+
+// ====================Chart=========================
+.recharts-cartesian-axis-tick{
+  text{
+    font-size: 20px;
+    font-weight: 500;
+    fill: #808080;
+  }
+}
+
+.recharts-bar-rectangle{
+  border-radius: 10px;
+  path{
+    border-radius: 10px;
+  }
+}
+
+.label-color{
+  color:#E9561E !important;
+}

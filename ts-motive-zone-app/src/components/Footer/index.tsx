@@ -1,4 +1,3 @@
-import '../../assets/styles/Footer/style.scss'
 import motiveLogo from '../../assets/images/logo/motive-zone-logo.png'
 import FooterForm from './FooterForm'
 
