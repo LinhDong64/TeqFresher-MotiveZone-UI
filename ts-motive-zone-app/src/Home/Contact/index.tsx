@@ -144,6 +144,7 @@ export default function Contact(props: any) {
           contentLabel="Example Modal"
         >
           <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Success</h2>
+          <p style={{textAlign:'center'}}>Your message have been sent. We will contact with you soon</p>
           <button onClick={closeModal}
            className="react-modal__button">OK</button>
         </Modal>
