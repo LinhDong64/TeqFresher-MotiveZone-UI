@@ -3,7 +3,8 @@ import contactBanner from '../../assets/images/banners/working-banner.png'
 import { useDispatch, useSelector } from 'react-redux'
 import ContactInput from './ContactInput/ContactInput'
 import ContactModal from './ContactModal/ContactModal'
-import Swal from 'sweetalert2'
+import Modal from 'react-modal';
+import { NONAME } from 'dns'
 
 export default function Contact(props: any) {
   const state: any = useSelector(state => state);
@@ -25,27 +26,14 @@ export default function Contact(props: any) {
     isDisableButton = false;
   }
 
-  useEffect(() => {
-    if (formData.dataReceived.status === 200) {
-      Swal.fire({
-        icon: 'success',
-        title: 'Successfully!',
-        showConfirmButton: true,
-      }).then(() => {
-        dispatch({ type: 'RESET_FORM' });
-      }
-      )
-    }
-  });
-
-  const [openModal, setModal] = useState(false);
-  function handleOpenModal() {
-    setModal(true);
+  const [openPolicyModal, setPolicyModal] = useState(false);
+  function handleOpenPolicyModal() {
+    setPolicyModal(true);
     document.getElementById('body')?.classList.add("fixed-body");
   }
 
-  function handleCloseModal() {
-    setModal(false);
+  function handleClosePolicyModal() {
+    setPolicyModal(false);
     document.getElementById('body')?.classList.remove("fixed-body");
   }
 
@@ -67,23 +55,61 @@ export default function Contact(props: any) {
     },
   ]
 
+  Modal.setAppElement('#root');
+
+  let subtitle: any;
+  const [modalIsOpen, setIsOpen] = React.useState(false);
+
+  function openModal() {
+    setIsOpen(true);
+    document.getElementById('body')?.classList.add("fixed-body");
+  }
+
+  function afterOpenModal() {
+    // references are now sync'd and can be accessed.
+    subtitle.style.color = '#f00';
+  }
+
+  function closeModal() {
+    setIsOpen(false);
+    document.getElementById('body')?.classList.remove("fixed-body");
+  }
+
+  const customStyles = {
+    content: {
+      top: '50%',
+      left: '50%',
+      right: 'auto',
+      bottom: 'auto',
+      marginRight: '-50%',
+      transform: 'translate(-50%, -50%)',
+    }, 
+  };
+
+  useEffect(() => {
+    if (formData.dataReceived.status === 200) {
+      openModal();
+      dispatch({ type: 'RESET_FORM' });
+    }
+  });
+
   return (
     <section className="contact-section">
       <div className="contact-section__banner">
-        <img src={contactBanner} />
+        <img src={contactBanner} alt='...' />
       </div>
       <div className="contact-section__title">
         <h3 className="global__title">Interested To Work With Us?</h3>
         <div>
           <p className="global__paragraph">Because it is
-          pleasure, but because those who do not know how
-          to pursue pleasure rationally encounter consequences
-          that are extremely painful. Nor again is there anyonewho
-          loves or pursues or desires to obtain pain
-                    </p>
+            pleasure, but because those who do not know how
+            to pursue pleasure rationally encounter consequences
+            that are extremely painful. Nor again is there anyonewho
+            loves or pursues or desires to obtain pain
+          </p>
           <p className="global__paragraph">Of itself, because it is
-          pain, but because occasionally circumstances occur in which
-                    toil and pain can procure him some great pleasure</p>
+            pain, but because occasionally circumstances occur in which
+            toil and pain can procure him some great pleasure</p>
         </div>
         <form>
           <div className="form__input-group">
@@ -98,18 +124,32 @@ export default function Contact(props: any) {
               })
             }
           </div>
-          <span onClick={handleOpenModal}>Privacy Policy</span>
+          <span onClick={handleOpenPolicyModal}>Privacy Policy</span>
           <div className="form__button">
             <button type="submit"
               className={isDisableButton ? "disable-button"
                 : "global__button"}
               onClick={handleSend_Click} disabled={isDisableButton}
             >Send
-                        </button>
+            </button>
           </div>
         </form>
       </div>
-      <ContactModal openModal={openModal} closeModal={handleCloseModal} />
+      <ContactModal openModal={openPolicyModal} closeModal={handleClosePolicyModal} />
+      <div>
+        <button onClick={openModal}>Open Modal</button>
+        <Modal
+          isOpen={modalIsOpen}
+          onAfterOpen={afterOpenModal}
+          onRequestClose={closeModal}
+          style={customStyles}
+          contentLabel="Example Modal"
+        >
+          <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Success</h2>
+          <button onClick={closeModal}
+           className="react-modal__button">OK</button>
+        </Modal>
+      </div>
     </section>
   )
 }

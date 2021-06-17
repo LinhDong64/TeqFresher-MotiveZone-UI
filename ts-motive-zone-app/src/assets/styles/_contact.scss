@@ -165,3 +165,34 @@
         }
     }
 }
+
+// ================custom react modal =================================
+.react-modal__button{
+  border: none;
+  outline: none;
+  width: 80px;
+  height: 35px;
+  background-color: #97d669;
+  font-weight: 500;
+  color: #fefefe;
+  &:hover{
+    cursor: pointer;
+  }
+}
+
+.ReactModal__Overlay{
+  background-color: rgba(0,0,0,0.4) !important; /* Black w/ opacity */
+}
+
+.ReactModal__Content{
+  width: 33%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+@media only screen and (max-width: 650px) {
+  .ReactModal__Content{
+    width: 50%;
+  }
+}
