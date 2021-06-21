@@ -22,23 +22,14 @@ export default function Chart(transProps: any) {
   }
 
   const CustomTick = (props: any) => {
-    if (props.payload.value === transProps.time.month) {
+    let color = props.payload.value === transProps.time.month ? '#2D69C4' : '';
       return (
         <g transform={`translate(${props.x},${props.y})`} >
-          <text textAnchor="end" fontSize={15} stroke='#2D69C4'>
+          <text textAnchor="end" fontSize={15} stroke={color}>
             {props.payload.value}
           </text>
         </g>
       )
-    } else {
-      return (
-        <g transform={`translate(${props.x},${props.y})`} >
-          <text textAnchor="end" fontSize={15}>
-            {props.payload.value}
-          </text>
-        </g>
-      )
-    }
   }
 
   useEffect(() => {
@@ -47,26 +38,37 @@ export default function Chart(transProps: any) {
     let scrollLeft: any;
     let isDown = false;
 
-    slider?.addEventListener('mousedown', ((e: MouseEvent) => {
+    function handleMouseDownSlider(e: MouseEvent){
       isDown = true;
       console.log(isDown);
       slider.classList.add('active');
       startX = e.pageX - slider.offsetLeft;
       scrollLeft = slider.scrollLeft;
-    }) as EventListener);
-    slider?.addEventListener('mouseleave', (() => {
+    } 
+
+    function handleMouseLeaveSlider(){
       isDown = false;
-    }) as EventListener);
-    slider?.addEventListener('mouseup', (() => {
+    }
+
+    function handleMouseUpSlider(){
       isDown = false;
-    }) as EventListener);
-    slider?.addEventListener('mousemove', ((e: MouseEvent) => {
+    }
+
+    function handleMouseMoveSlider(e: MouseEvent){
       if (!isDown) return;
       e.preventDefault();
       const x = e.pageX - slider.offsetLeft;
       const walk = (x - startX) * 3; //scroll-fast
       slider.scrollLeft = scrollLeft - walk;
-    }) as EventListener);
+    }
+
+    slider?.addEventListener('mousedown', handleMouseDownSlider as EventListener);
+
+    slider?.addEventListener('mouseleave', handleMouseLeaveSlider as EventListener);
+    
+    slider?.addEventListener('mouseup', handleMouseUpSlider as EventListener);
+
+    slider?.addEventListener('mousemove', handleMouseMoveSlider as EventListener);
   }, []);
 
   const colorLine = "#808080";

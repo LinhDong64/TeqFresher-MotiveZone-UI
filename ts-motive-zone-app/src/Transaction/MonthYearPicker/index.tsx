@@ -18,8 +18,7 @@ export default function MonthYearPicker(props: any) {
   }
 
   function selectMonthClick(month: number) {
-    if (selectedYear < currentYear || (selectedYear === currentYear
-      && month <= currentMonth)) {
+    if ((currentYear !== selectedYear) || (currentMonth >= month)) {
       setMonth(month);
     }
   }
