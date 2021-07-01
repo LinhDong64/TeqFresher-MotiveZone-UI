@@ -59,7 +59,7 @@ export default function Chart(transProps: any) {
     slider.scrollLeft = scrollLeft - walk;
   }
   useEffect(() => {
-    const slider = document.querySelector('.items') as HTMLElement;
+    const slider = document.querySelector('.container-chart') as HTMLElement;
     slider?.addEventListener('mousedown',
       function (e: MouseEvent) { handleMouseDownSlider(e, slider) } as EventListener);
 
@@ -75,7 +75,7 @@ export default function Chart(transProps: any) {
 
   const colorLine = "#808080";
   return (
-    <div className='items'>
+    <div className='container-chart'>
       <BarChart data={data} margin={{ top: 15, bottom: 5 }}
         width={730} height={250}
         style={{ cursor: 'grab' }}>

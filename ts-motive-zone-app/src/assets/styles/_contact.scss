@@ -21,12 +21,10 @@
     width: 595px;
     form{
         margin-right: 55px;
-
         .form__input-group{
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            margin-bottom: 25px;
             div{
                 input{
                     background-color: #FAF9F7;
@@ -36,10 +34,7 @@
                     padding: 20px;
                     width: 100%;
                 }
-                &:nth-child(2){
-                    margin: 25px 0;
-                }
-
+                margin-bottom: 25px;
             }
             
         }
@@ -195,4 +190,26 @@
   .ReactModal__Content{
     width: 50%;
   }
+}
+
+// ======================== custom file input =======================
+.custom-file{
+  
+}
+.custom-file-input{
+  width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.custom-file-input + label{
+  font-size: 1.25em;
+    font-weight: 700;
+    color: white;
+    background-color: black;
+    display: inline-block;
+    cursor: pointer;
 }

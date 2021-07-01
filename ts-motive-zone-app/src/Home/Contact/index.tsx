@@ -82,7 +82,7 @@ export default function Contact(props: any) {
       bottom: 'auto',
       marginRight: '-50%',
       transform: 'translate(-50%, -50%)',
-    }, 
+    },
   };
 
   useEffect(() => {
@@ -112,6 +112,10 @@ export default function Contact(props: any) {
         </div>
         <form>
           <div className="form__input-group">
+            <div className="custom-file">
+              <input type="file" name="file" id="contact-file" className="custom-file-input"/>
+              <label htmlFor="file">Choose a file</label>
+            </div>
             {
               inputData.map((item, index) => {
                 return (
@@ -144,9 +148,9 @@ export default function Contact(props: any) {
           contentLabel="Example Modal"
         >
           <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Success</h2>
-          <p style={{textAlign:'center'}}>Your message have been sent. We will contact with you soon</p>
+          <p style={{ textAlign: 'center' }}>Your message have been sent. We will contact with you soon</p>
           <button onClick={closeModal}
-           className="react-modal__button">OK</button>
+            className="react-modal__button">OK</button>
         </Modal>
       </div>
     </section>
