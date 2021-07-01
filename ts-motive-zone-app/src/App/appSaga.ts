@@ -3,6 +3,7 @@ import * as contactSaga from '../Home/Contact/contactSaga'
 import * as transactionSaga from '../Transaction/transactionSaga'
 
 function* rootSaga() {
+    yield takeLatest('CHECK_CHOOSE_FILE', contactSaga.checkChooseFile)
     yield takeLatest('CHECK_FULLNAME', contactSaga.checkFullName);
     yield takeLatest('CHECK_EMAIL', contactSaga.checkEmail);
     yield takeLatest('CHECK_MESSAGE', contactSaga.checkMessage);

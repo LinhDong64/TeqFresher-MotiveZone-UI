@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import contactBanner from '../../assets/images/banners/working-banner.png'
 import { useDispatch, useSelector } from 'react-redux'
-import ContactInput from './ContactInput/ContactInput'
+import ContactInputText from './ContactInputText/ContactInputText'
+import ContactInputFile from './ContactInputFile/ContactInputFile'
 import ContactModal from './ContactModal/ContactModal'
 import Modal from 'react-modal';
 
@@ -17,9 +18,9 @@ export default function Contact(props: any) {
 
   let isDisableButton = true;
   if ((formData.fullNameWarningMess || formData.emailWarningMess
-    || formData.messageWarningMess) ||
+    || formData.messageWarningMess || formData.chooseFileWarningMess) ||
     !(formData.dataToSend.fullName && formData.dataToSend.email
-      && formData.dataToSend.message)) {
+      && formData.dataToSend.message && formData.dataToSend.file)) {
     isDisableButton = true;
   } else {
     isDisableButton = false;
@@ -40,17 +41,20 @@ export default function Contact(props: any) {
     {
       name: 'fullName',
       actionType: 'CHECK_FULLNAME',
-      warningMess: formData.fullNameWarningMess
+      warningMess: formData.fullNameWarningMess,
+      placeHolder: 'Full name'
     },
     {
       name: 'email',
       actionType: 'CHECK_EMAIL',
-      warningMess: formData.emailWarningMess
+      warningMess: formData.emailWarningMess,
+      placeHolder: 'Email'
     },
     {
       name: 'message',
       actionType: 'CHECK_MESSAGE',
-      warningMess: formData.messageWarningMess
+      warningMess: formData.messageWarningMess,
+      placeHolder: 'Message'
     },
   ]
 
@@ -111,18 +115,18 @@ export default function Contact(props: any) {
             toil and pain can procure him some great pleasure</p>
         </div>
         <form>
-          <div className="form__input-group">
-            <div className="custom-file">
-              <input type="file" name="file" id="contact-file" className="custom-file-input"/>
-              <label htmlFor="file">Choose a file</label>
-            </div>
+          <div>
+            <ContactInputFile />
+          </div>
+          <div className="form__input-text-group">
             {
               inputData.map((item, index) => {
                 return (
-                  <ContactInput key={index}
+                  <ContactInputText key={index}
                     name={item.name}
                     actionType={item.actionType}
-                    warningMess={item.warningMess} />
+                    warningMess={item.warningMess}
+                    placeHolder={item.placeHolder} />
                 )
               })
             }

@@ -198,7 +198,7 @@
   color:#E9561E !important;
 }
 
-.items{
+.container-chart{
   position: relative;
     width: 100%;
     height: auto;
@@ -212,12 +212,12 @@
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */
-.items::-webkit-scrollbar {
+.container-chart::-webkit-scrollbar {
     display: none;
 }
 
 /* Hide scrollbar for IE, Edge and Firefox */
-.items {
+.container-chart {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
 }

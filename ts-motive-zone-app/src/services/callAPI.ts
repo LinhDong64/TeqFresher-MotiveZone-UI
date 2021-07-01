@@ -1,9 +1,12 @@
 import axios from 'axios'
 
 export const sendContactForm = (data: any) => {
+  console.log('API send form', data);
+  //const url = `https://mock.stg.offwork.teqnological.asia/mock/6092029dfdc7510021577547/contact`;
+  const url =`http://localhost:1337/demo-contact-forms`
   return axios({
     method: 'post',
-    url: `https://mock.stg.offwork.teqnological.asia/mock/6092029dfdc7510021577547/contact`,
+    url: url,
     data: { data }
   }).then(res => {
     return res.data;

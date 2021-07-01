@@ -21,7 +21,7 @@
     width: 595px;
     form{
         margin-right: 55px;
-        .form__input-group{
+        .form__input-text-group{
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -38,6 +38,41 @@
             }
             
         }
+        .form__input-file-group{
+          background-color: #FAF9F7;
+          border: 1px solid #EDE5D9;
+          outline: none;
+          margin-bottom: 25px;
+          display: flex;
+          align-items: center;
+          .custom-file-input{
+            width: 0.1px;
+            height: 0.1px;
+            opacity: 0;
+            overflow: hidden;
+            position: absolute;
+            z-index: -1;
+          }
+          
+          .custom-file-input + label{
+            font-size: 1.25em;
+            color: white;
+            background-color: black;
+            display: inline-block;
+            cursor: pointer;
+            padding: 15px;
+            i{
+              margin-right: 5px;
+            }
+          }
+          #file-chosen{
+            margin-left: 10px;
+            // word-wrap: break-word;
+            // white-space: nowrap;
+            // text-overflow: ellipsis;
+          }
+        }
+
         &>span{
             font-size: 15px;
             color: #498AB3;
@@ -192,24 +227,3 @@
   }
 }
 
-// ======================== custom file input =======================
-.custom-file{
-  
-}
-.custom-file-input{
-  width: 0.1px;
-	height: 0.1px;
-	opacity: 0;
-	overflow: hidden;
-	position: absolute;
-	z-index: -1;
-}
-
-.custom-file-input + label{
-  font-size: 1.25em;
-    font-weight: 700;
-    color: white;
-    background-color: black;
-    display: inline-block;
-    cursor: pointer;
-}

@@ -3,6 +3,12 @@ import * as contactActions from './contactActions'
 import * as validateFunction from '../../utils/function/validateContactForm'
 import * as callAPI from '../../services/callAPI'
 
+export function* checkChooseFile(action: any) {
+  const data: object = yield call(validateFunction.validateFile,
+      action.payload.data);
+  yield put(contactActions.onChangeChooseFile(data));
+}
+
 export function* checkFullName(action: any) {
     const data: object = yield call(validateFunction.validateFullName,
         action.payload.data);
