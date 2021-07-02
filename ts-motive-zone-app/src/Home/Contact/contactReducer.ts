@@ -28,8 +28,8 @@ const formReducer = (state = initialState, action: any) => {
         ...state,
         chooseFileWarningMess: action.payload.warningMessages || '',
       };
-      //console.log('contact reducer' ,action.payload.data );
       newState.dataToSend.file = action.payload.data || null;
+
       return newState
     }
 
@@ -39,6 +39,7 @@ const formReducer = (state = initialState, action: any) => {
         fullNameWarningMess: action.payload.warningMessage || '',
       };
       newState.dataToSend.fullName = action.payload.data || '';
+      
       return newState;
     }
 

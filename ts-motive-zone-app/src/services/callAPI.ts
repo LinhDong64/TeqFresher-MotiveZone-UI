@@ -1,29 +1,23 @@
 import axios from 'axios'
 
 export const sendContactForm = (data: any) => {
-  const formData = new FormData();
-  formData.append('fullName', data.fullName.toString());
-  formData.append('email', data.email.toString());
-  formData.append('message', data.message.toString());
-  formData.append('file', data.file, data.file.name);
+  let formData = new FormData();
+  const value = {
+    fullName: data.fullName,
+    email: data.email,
+    message: data.message
+  }; 
+
+  formData.append('data', JSON.stringify(value));
+  formData.append('files.file', data.file, data.file.name);
   
-  console.log('API send form', data);
-  console.log(formData.get('file'));
-  console.log(formData.get('fullName'));
-  console.log(formData.get('message'));
-  console.log(formData.get('email'));
-  
+  const instance = axios.create({
+    baseURL: 'http://localhost:1337'
+  });
   //const url = `https://mock.stg.offwork.teqnological.asia/mock/6092029dfdc7510021577547/contact`;
-  const url =`http://localhost:1337/demo-contact-forms`
-  return axios({
-    method: 'post',
-    url: url,
-    data: formData
-    // data: data
-  }).then(res => {
-    console.log('res', res.data);
-    
-    return res.data;
+  const url =`/demo-contact-forms`;
+  return instance.post(url, formData).then(res=>{
+    return res;
   })
 }
 
