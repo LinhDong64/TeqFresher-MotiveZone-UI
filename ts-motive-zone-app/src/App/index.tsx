@@ -6,9 +6,14 @@ import {
 import Home from '../Home'
 import Footer from '../components/Footer'
 import Transaction from '../Transaction'
+import { useEffect } from 'react'
+import {getStrapiToken} from '../services/callAPI'
 
 
 const App: React.FC = () => {
+  useEffect(()=>{
+    getStrapiToken();
+  }, [])
   return (
     <Router>
       <div>

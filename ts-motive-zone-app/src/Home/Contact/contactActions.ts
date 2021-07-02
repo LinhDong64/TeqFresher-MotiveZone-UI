@@ -3,7 +3,8 @@ export const CONSTANTS = {
     ONCHANGE_FULLNAME: "ONCHANGE_FULLNAME",
     ONCHANGE_EMAIL: "ONCHANGE_EMAIL",
     ONCHANGE_MESSAGE: "ONCHANGE_MESSAGE",
-    RESET_FORM_DATA: "RESET_FORM_DATA"
+    RESET_FORM_DATA: "RESET_FORM_DATA",
+    ONCHANGE_CHOOSE_FILE: "ONCHANGE_CHOOSE_FILE"
 }
 
 export const submitContactForm = (data: any) => {
@@ -38,4 +39,11 @@ export const resetForm = () => {
     return {
         type: CONSTANTS.RESET_FORM_DATA,
     }
+}
+
+export const onChangeChooseFile = (data:any)=>{
+  return {
+    type: CONSTANTS.ONCHANGE_CHOOSE_FILE,
+    payload: {...data}
+  }
 }
