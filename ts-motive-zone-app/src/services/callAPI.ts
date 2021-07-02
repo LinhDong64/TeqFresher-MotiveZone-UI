@@ -1,6 +1,21 @@
 import axios from 'axios'
 
-export const sendContactForm = (data: any) => {
+const baseUrl = 'http://localhost:1337';
+export const getStrapiToken = async()=>{
+  const { data } = await axios.post(`${baseUrl}/auth/local`, {
+    identifier: 'author@strapi.io',
+    password: 'strapi',
+  });
+
+  if(localStorage){
+    localStorage.setItem('token', data.jwt);
+  }else{
+    console.log('The browser does not support local storage!');
+  }
+  console.log('From getStrapiToken',data);
+}
+
+export const sendContactForm = async (data: any) => {
   let formData = new FormData();
   const value = {
     fullName: data.fullName,
@@ -12,11 +27,14 @@ export const sendContactForm = (data: any) => {
   formData.append('files.file', data.file, data.file.name);
   
   const instance = axios.create({
-    baseURL: 'http://localhost:1337'
+    baseURL: baseUrl, 
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem('token')}`
+    }
   });
   //const url = `https://mock.stg.offwork.teqnological.asia/mock/6092029dfdc7510021577547/contact`;
   const url =`/demo-contact-forms`;
-  return instance.post(url, formData).then(res=>{
+  return await instance.post(url, formData).then(res=>{
     return res;
   })
 }
